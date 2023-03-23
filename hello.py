@@ -11,7 +11,7 @@ def login():
    if request.method == 'POST':
       user = request.form['Name']
       password = request.form['Password']
-      print()
+      print(password)
       return redirect(url_for('success',name = user))
    else:
       user = request.args.get('Name')
