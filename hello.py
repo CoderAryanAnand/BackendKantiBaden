@@ -18,4 +18,3 @@ def login():
     else:
         user = request.args.get('Name')
         return redirect(url_for('success', name=user))
-        print('fail')
