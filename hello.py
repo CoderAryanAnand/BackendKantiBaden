@@ -9,8 +9,10 @@ def success(name):
 @app.route('/login',methods = ['POST', 'GET'])
 def login():
    if request.method == 'POST':
-      user = request.form['nm']
+      user = request.form['Name']
+      password = request.form['Password']
+      print()
       return redirect(url_for('success',name = user))
    else:
-      user = request.args.get('nm')
+      user = request.args.get('Name')
       return redirect(url_for('success',name = user))
