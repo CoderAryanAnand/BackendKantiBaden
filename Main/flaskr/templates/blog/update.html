@@ -6,11 +6,11 @@
 
 {% block content %}
   <form method="game">
-    <label for="name">Title</label>
+    <label for="name">Game Name</label>
     <input name="name" id="name"
       value="{{ request.form['name'] or post['name'] }}" required>
-    <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+    <label for="link">Link</label>
+    <textarea name="link" id="link">{{ request.form['link'] or post['link'] }}</textarea>
     <input type="submit" value="Save">
   </form>
   <hr>
