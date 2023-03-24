@@ -8,21 +8,23 @@ from flaskr.db import get_db
 
 bp = Blueprint('blog', __name__)
 
-
 @bp.route('/')
-def index():
+def home():
+    return render_template('games/Home.html')
+@bp.route('/games/<game_id>')
+def index(game_id):
     db = get_db()
     posts = db.execute(
-        'SELECT p.id, title, body, created, author_id, username'
+        'SELECT p.id, title, body, created, author_id, username, game_id'
         ' FROM post p JOIN user u ON p.author_id = u.id'
-        ' ORDER BY created DESC'
-    ).fetchall()
-    return render_template('blog/index.html', posts=posts)
+        ' WHERE game_id = ?',
+        (game_id,)).fetchall()
+    return render_template('Games/G'+(game_id)+'.html', posts=posts)
 
 
-@bp.route('/create', methods=('GET', 'POST'))
+@bp.route('/games/<game_id>/create', methods=('GET', 'POST'))
 @login_required
-def create():
+def create(game_id):
     if request.method == 'POST':
         title = request.form['title']
         body = request.form['body']
@@ -36,12 +38,12 @@ def create():
         else:
             db = get_db()
             db.execute(
-                'INSERT INTO post (title, body, author_id)'
-                ' VALUES (?, ?, ?)',
-                (title, body, g.user['id'])
+                'INSERT INTO post (title, body, author_id, game_id)'
+                ' VALUES (?, ?, ?, ?)',
+                (title, body, g.user['id'],game_id)
             )
             db.commit()
-            return redirect(url_for('blog.index'))
+            return redirect("/games/"+game_id)
 
     return render_template('blog/create.html')
 
@@ -63,9 +65,9 @@ def get_post(id, check_author=True):
     return post
 
 
-@bp.route('/<int:id>/update', methods=('GET', 'POST'))
+@bp.route('/games/<game_id>/<int:id>/update', methods=('GET', 'POST'))
 @login_required
-def update(id):
+def update(game_id, id):
     post = get_post(id)
 
     if request.method == 'POST':
@@ -86,7 +88,7 @@ def update(id):
                 (title, body, id)
             )
             db.commit()
-            return redirect(url_for('blog.index'))
+            return redirect("/games/"+game_id)
 
     return render_template('blog/update.html', post=post)
 
@@ -98,4 +100,4 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('blog.index'))
+    return redirect("/games/"+game_id)
