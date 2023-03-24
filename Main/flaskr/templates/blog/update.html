@@ -8,13 +8,13 @@
   <form method="game">
     <label for="name">Game Name</label>
     <input name="name" id="name"
-      value="{{ request.form['name'] or post['name'] }}" required>
+      value="{{ request.form['name'] or game['name'] }}" required>
     <label for="link">Link</label>
-    <textarea name="link" id="link">{{ request.form['link'] or post['link'] }}</textarea>
+    <textarea name="link" id="link">{{ request.form['link'] or game['link'] }}</textarea>
     <input type="submit" value="Save">
   </form>
   <hr>
-  <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
+  <form action="{{ url_for('blog.delete', id=game['id']) }}" method="post">
     <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
   </form>
 {% endblock %}
