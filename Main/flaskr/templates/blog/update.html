@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-  <form method="game">
+  <form method="post">
     <label for="name">Game Name</label>
     <input name="name" id="name"
       value="{{ request.form['name'] or game['name'] }}" required>
