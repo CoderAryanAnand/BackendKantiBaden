@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
+    Blueprint, flash, g, redirect, render_template, request
 )
 from werkzeug.exceptions import abort
 
@@ -8,23 +8,26 @@ from flaskr.db import get_db
 
 bp = Blueprint('blog', __name__)
 
+
 @bp.route('/')
 def home():
     return render_template('games/Home.html')
-@bp.route('/games/<game_id>')
-def index(game_id):
+
+
+@bp.route('/<game>', methods=('GET','POST'))
+def index(game):
     db = get_db()
     posts = db.execute(
-        'SELECT p.id, title, body, created, author_id, username, game_id'
+        'SELECT p.id, title, body, created, author_id, username, game'
         ' FROM post p JOIN user u ON p.author_id = u.id'
-        ' WHERE game_id = ?',
-        (game_id,)).fetchall()
-    return render_template('Games/G'+(game_id)+'.html', posts=posts)
+        ' WHERE game = ?',
+        (game,)).fetchall()
+    return render_template('Games/' + (game) + '.html',posts = posts)
 
 
-@bp.route('/games/<game_id>/create', methods=('GET', 'POST'))
+@bp.route('/<game>/create', methods=('GET', 'POST'))
 @login_required
-def create(game_id):
+def create(game):
     if request.method == 'POST':
         title = request.form['title']
         body = request.form['body']
@@ -38,12 +41,12 @@ def create(game_id):
         else:
             db = get_db()
             db.execute(
-                'INSERT INTO post (title, body, author_id, game_id)'
+                'INSERT INTO post (title, body, author_id, game)'
                 ' VALUES (?, ?, ?, ?)',
-                (title, body, g.user['id'],game_id)
+                (title, body, g.user['id'], game)
             )
             db.commit()
-            return redirect("/games/"+game_id)
+            return redirect("/" + game)
 
     return render_template('blog/create.html')
 
@@ -65,9 +68,9 @@ def get_post(id, check_author=True):
     return post
 
 
-@bp.route('/games/<game_id>/<int:id>/update', methods=('GET', 'POST'))
+@bp.route('/<game>/<int:id>/update', methods=('GET', 'POST'))
 @login_required
-def update(game_id, id):
+def update(game, id):
     post = get_post(id)
 
     if request.method == 'POST':
@@ -88,7 +91,7 @@ def update(game_id, id):
                 (title, body, id)
             )
             db.commit()
-            return redirect("/games/"+game_id)
+            return redirect("/" + game)
 
     return render_template('blog/update.html', post=post)
 
@@ -100,4 +103,4 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
-    return redirect("/games/"+game_id)
+    return redirect("/" + game)
