@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Posts{% endblock %}</h1>
+  <h1>{% block title %}Game Name{% endblock %}</h1>
   {% if g.user[1] == "admin" %}
     <a class="action" href="{{ url_for('blog.create') }}">New</a>
   {% endif %}
 {% endblock %}
 
 {% block content %}
-  {% for post in posts %}
-    <article class="post">
+  {% for game in games %}
+    <article class="game">
       <header>
         <div>
-          <h1>{{ post['title'] }}</h1>
-          <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
+          <h1>{{ post['name'] }}</h1>
+          <div class="about">by {{ post['username'] }} on {{ post['updated'].strftime('%Y-%m-%d') }}</div>
         </div>
         {% if g.user['id'] == post['author_id'] %}
           <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
@@ -25,4 +25,5 @@
       <hr>
     {% endif %}
   {% endfor %}
+
 {% endblock %}
