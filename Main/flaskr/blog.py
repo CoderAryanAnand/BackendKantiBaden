@@ -25,7 +25,7 @@ def index():
 def create():
     if request.method == 'POST':
         title = request.form['name']
-        body = request.form['öink']
+        body = request.form['link']
         error = None
 
         if not title:
