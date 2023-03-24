@@ -24,12 +24,12 @@ def index():
 @login_required
 def create():
     if request.method == 'POST':
-        title = request.form['title']
-        body = request.form['body']
+        title = request.form['name']
+        body = request.form['link']
         error = None
 
         if not title:
-            error = 'Title is required.'
+            error = 'Name is required.'
 
         if error is not None:
             flash(error)
