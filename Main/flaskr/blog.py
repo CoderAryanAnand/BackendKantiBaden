@@ -4,36 +4,36 @@ from flask import (
 from werkzeug.exceptions import abort
 
 from flaskr.auth import login_required
-from flaskr.db import get_db
+from flaskr.db import get_db, init_db
 
 bp = Blueprint('blog', __name__)
 
 
 @bp.route('/')
 def home():
-    return render_template('games/Home.html')
+    return render_template('Games/Home.html')
 
 
 @bp.route('/<game>', methods=('GET','POST'))
 def index(game):
     db = get_db()
-    posts = db.execute(
-        'SELECT p.id, title, body, created, author_id, username, game'
-        ' FROM post p JOIN user u ON p.author_id = u.id'
+    games = db.execute(
+        'SELECT p.id, link, created, author_id, uname, game'
+        ' FROM game p JOIN user u ON p.author_id = u.id'
         ' WHERE game = ?',
         (game,)).fetchall()
-    return render_template('Games/' + (game) + '.html',posts = posts)
+    return render_template('Games/' + (game) + '.html',games = games)
 
 
 @bp.route('/<game>/create', methods=('GET', 'POST'))
 @login_required
 def create(game):
     if request.method == 'POST':
-        title = request.form['title']
-        body = request.form['body']
+        uname = request.form['uname']
+        link = request.form['link']
         error = None
 
-        if not title:
+        if not uname:
             error = 'Title is required.'
 
         if error is not None:
@@ -41,9 +41,9 @@ def create(game):
         else:
             db = get_db()
             db.execute(
-                'INSERT INTO post (title, body, author_id, game)'
+                'INSERT INTO game (uname, link, author_id, game)'
                 ' VALUES (?, ?, ?, ?)',
-                (title, body, g.user['id'], game)
+                (uname, link, g.user['id'], game)
             )
             db.commit()
             return redirect("/" + game)
@@ -51,27 +51,27 @@ def create(game):
     return render_template('blog/create.html')
 
 
-def get_post(id, check_author=True):
-    post = get_db().execute(
-        'SELECT p.id, title, body, created, author_id, username'
-        ' FROM post p JOIN user u ON p.author_id = u.id'
+def get_game(id, check_author=True):
+    game = get_db().execute(
+        'SELECT p.id, link, created, author_id, uname'
+        ' FROM game p JOIN user u ON p.author_id = u.id'
         ' WHERE p.id = ?',
         (id,)
     ).fetchone()
 
-    if post is None:
-        abort(404, f"Post id {id} doesn't exist.")
+    if game is None:
+        abort(404, f"Game id {id} doesn't exist.")
 
-    if check_author and post['author_id'] != g.user['id']:
+    if check_author and game['author_id'] != g.user['id']:
         abort(403)
 
-    return post
+    return game
 
 
 @bp.route('/<game>/<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(game, id):
-    post = get_post(id)
+    game = get_game(id)
 
     if request.method == 'POST':
         title = request.form['title']
@@ -86,21 +86,21 @@ def update(game, id):
         else:
             db = get_db()
             db.execute(
-                'UPDATE post SET title = ?, body = ?'
+                'UPDATE game SET title = ?, body = ?'
                 ' WHERE id = ?',
                 (title, body, id)
             )
             db.commit()
             return redirect("/" + game)
 
-    return render_template('blog/update.html', post=post)
+    return render_template('blog/update.html', game=game)
 
 
 @bp.route('/<int:id>/delete', methods=('POST',))
 @login_required
 def delete(id):
-    get_post(id)
+    get_game(id)
     db = get_db()
-    db.execute('DELETE FROM post WHERE id = ?', (id,))
+    db.execute('DELETE FROM game WHERE id = ?', (id,))
     db.commit()
     return redirect("/" + game)
