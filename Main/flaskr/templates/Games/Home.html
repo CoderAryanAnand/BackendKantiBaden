@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Game Name{% endblock %}</h1>
-  {% if g.user[1] == "admin" %}
-    <a class="action" href="/G1">Game1</a>
-    <a class="action" href="/G2">Game2</a>
-  {% endif %}
+<h1>{% block title %}Game Name{% endblock %}</h1>
+{% if g.user[1] == "admin" %}
+<a class="action" href="/G1">Game1</a>
+<a class="action" href="/G2">Game2</a>
+{% endif %}
 {% endblock %}
 
 {% block content %}
