@@ -43,7 +43,7 @@ Contributions to this project are welcome! Please follow these guidelines when s
 
 Fork the repository and create a new branch for your changes:
 
-    git clone https://github.com/user/repo.git
+    git clone https://github.com/CoderAryanAnand/BackendKantiBaden.git
     cd repo
     git checkout -b my-feature-branch
 
