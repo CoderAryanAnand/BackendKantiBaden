@@ -14,7 +14,7 @@ This is the backend for a website with games created by the class G1b in Kanti B
 
 1. Clone the repository:
 
-```git clone https://github.com/user/repo.git```
+```git clone https://github.com/CoderAryanAnand/BackendKantiBaden.git```
 
 2. Change into the project directory:
 
