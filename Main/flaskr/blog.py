@@ -21,7 +21,7 @@ def index(game):
         " WHERE game = ?",
         (game,),
     ).fetchall()
-    return render_template("Games/" + (game) + ".html", games=games)
+    return render_template("Games/" + game + ".html", games=games)
 
 
 @bp.route("/<game>/create", methods=("GET", "POST"))
@@ -30,6 +30,7 @@ def create(game):
     if request.method == "POST":
         uname = request.form["uname"]
         link = request.form["link"]
+        code = request.form["code"]
         error = None
 
         if not uname:
@@ -38,6 +39,8 @@ def create(game):
         if error is not None:
             flash(error)
         else:
+            print(uname)
+            print(link)
             db = get_db()
             db.execute(
                 "INSERT INTO game (uname, link, author_id, game)"
@@ -92,7 +95,7 @@ def update(game, id):
                 "UPDATE game SET title = ?, body = ?" " WHERE id = ?", (title, body, id)
             )
             db.commit()
-            return redirect("/" + game)
+            return redirect("/G" + game)
 
     return render_template("blog/update.html", game=game)
 
@@ -104,4 +107,4 @@ def delete(id):
     db = get_db()
     db.execute("DELETE FROM game WHERE id = ?", (id,))
     db.commit()
-    return redirect("/" + game)
+    return redirect("/G" + id)
