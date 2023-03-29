@@ -28,3 +28,9 @@ CREATE TABLE game (
   link TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
+
+CREATE TABLE review (
+  content TEXT NOT NULL,
+  game_id INTEGER NOT NULL,
+  num_review INTEGER NOT NULL
+);
