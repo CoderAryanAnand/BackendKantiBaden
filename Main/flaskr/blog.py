@@ -27,7 +27,7 @@ def index(game):
 @bp.route("/<game>/create", methods=("GET", "POST"))
 @login_required
 def create(game):
-    if request.method == "post":
+    if request.method == "POST":
         uname = request.form["uname"]
         link = request.form["link"]
         code = request.form["code"]
@@ -51,7 +51,7 @@ def create(game):
             db.commit()
             return redirect("/" + game)
 
-    return render_template("blog/create.html")
+    return render_template("Games/create.html")
 
 
 def get_game(id, check_author=True):
