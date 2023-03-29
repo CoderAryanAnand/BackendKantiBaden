@@ -37,10 +37,11 @@ def create(game):
             error = "Title is required."
 
         if error is not None:
-            flash(error)
+            print(error)
         else:
             print(uname)
             print(link)
+            print(code)
             db = get_db()
             db.execute(
                 "INSERT INTO game (uname, link, author_id, game)"
