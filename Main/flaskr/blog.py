@@ -30,7 +30,6 @@ def create(game):
     if request.method == "POST":
         uname = request.form["uname"]
         link = request.form["link"]
-        code = request.form["code"]
         error = None
 
         if not uname:
@@ -41,7 +40,6 @@ def create(game):
         else:
             print(uname)
             print(link)
-            print(code)
             db = get_db()
             db.execute(
                 "INSERT INTO game (uname, link, author_id, game)"

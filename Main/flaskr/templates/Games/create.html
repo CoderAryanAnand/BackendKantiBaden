@@ -10,9 +10,6 @@
     <input name="title" id="title" value="{{ request.form['uname'] }}" required>
     <label for="body">Body</label>
     <textarea name="body" id="body">{{ request.form['link'] }}</textarea>
-    <label for="code">Code (COPY YOUR HTML CODE HERE)</label>
-    <textarea name="code" id="code">{{ request.form['code'] }}</textarea>
-
     <input type="submit" value="Save">
 </form>
 {% endblock %}
