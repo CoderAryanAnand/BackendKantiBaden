@@ -24,6 +24,7 @@ def index(game):
     return render_template("Games/" + game + ".html", games=games)
 
 
+
 @bp.route("/<game>/create", methods=("GET", "POST"))
 @login_required
 def create(game):
