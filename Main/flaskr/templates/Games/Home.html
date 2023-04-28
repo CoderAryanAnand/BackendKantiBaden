@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>{% block title %}Game Name{% endblock %}</h1>
+<h1>{% block title %}Home{% endblock %}</h1>
+<hr>
+<h1>{% block titleA %}Game Name{% endblock %}</h1>
 {% if g.user[1] == "admin" %}
 <a class="action" href="/G1">Game 1</a>
 
