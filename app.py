@@ -1,5 +1,6 @@
 from flask import Flask, url_for, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
@@ -30,7 +31,7 @@ def index():
 def register():
     if request.method == 'POST':
         try:
-            db.session.add(User(username=request.form['username'], password=request.form['password']))
+            db.session.add(User(username=request.form['username'], password=generate_password_hash(request.form['password'])))
             db.session.commit()
             return redirect(url_for('login'))
         except:
@@ -46,10 +47,12 @@ def login():
     else:
         u = request.form['username']
         p = request.form['password']
-        data = User.query.filter_by(username=u, password=p).first()
+        data = User.query.filter_by(username=u).first()
+        print(data)
         if data is not None:
-            session['logged_in'] = True
-            return redirect(url_for('index'))
+            if check_password_hash(data.password, p):
+                session['logged_in'] = True
+                return redirect(url_for('index'))
         return render_template('index.html', message="Incorrect Details")
 
 
@@ -58,7 +61,7 @@ def logout():
     session['logged_in'] = False
     return redirect(url_for('index'))
 
-if(__name__ == '__main__'):
+if __name__ == '__main__':
     app.secret_key = "ThisIsNotASecret:p"
     db.create_all()
     app.run()
