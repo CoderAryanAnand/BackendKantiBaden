@@ -1,0 +1,28 @@
+{% extends 'base_new.html' %}
+
+{% block content %}
+    <span class="title"><h1>{% block title %} Games {% endblock %}</h1></span>
+    <div class="content">
+        {% for game in games %}
+            <div class="game">
+                <p class="title">
+                    <a href="{{ url_for('game_', game_id=game.id)}}">
+                    {{ game.title }}
+                    </a>
+                </p>
+                <b>
+                    <p class="title">
+                        <a href="#">
+                            {{ game.title }}
+                        </a>
+                    </p>
+                </b>
+                <div class="content">
+                    <p>{{ game.title }}</p>
+                </div>
+                <hr>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -19,17 +19,49 @@ class User(db.Model):
         self.password = password
 
 
+class Game(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    title = db.Column(db.String(100))
+    comments = db.relationship('Comment', backref='game')
+
+    def __repr__(self):
+        return f'<Game "{self.title}">'
+
+
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.Text)
+    game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
+
+    def __repr__(self):
+        return f'<Comment "{self.content[:20]}...">'
+
+
 @app.route('/', methods=['GET'])
 def index():
     if session.get('logged_in'):
-        return render_template('home.html', title='Home')
+        # return render_template('home.html', title='Home')
+        games = Game.query.all()
+        return render_template('home_new.html', title='Home', games=games)
     else:
         return render_template('index.html', message="Hello!", title="Login")
 
 
-@app.route("/Games/<game>", methods=("GET", "POST"))
-def game_1(game):
-    return render_template("Games/" + game + ".html", title="Game 1")
+# @app.route("/Games/<game>", methods=("GET", "POST"))
+# def game_1(game):
+#     return render_template("Games/" + game + ".html", title="Game 1")
+#
+@app.route("/<int:game_id>", methods=("GET", "POST"))
+def game_(game_id):
+    game = Game.query.get_or_404(game_id)
+    if request.method == 'POST':
+        comment = Comment(content=request.form['content'], game=game)
+        db.session.add(comment)
+        db.session.commit()
+        return redirect(url_for('game_', game_id=game.id))
+    name = game.name
+    return render_template("Games/" + name + ".html", title=game.title, game=game)
 
 
 @app.route('/register/', methods=['GET', 'POST'])
