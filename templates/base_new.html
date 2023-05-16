@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %} - FlaskApp</title>
+	{% if title %}
+     <title>{{title}}</title>
+{%else%}
+    <title>Login</title>
+{%endif%}
     <style>
         .title {
             margin: 5px;
@@ -35,21 +39,23 @@
             text-decoration: none;
         }
 
-        nav a {
-            color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
-            text-decoration: none;
-        }
-
     </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
+
 </head>
 <body>
-    <nav>
-        <a href="{{ url_for('index') }}">FlaskApp</a>
-        <a href="#">Comments</a>
-        <a href="#">About</a>
-    </nav>
+<nav>
+    <a class="action" href="/"><h1>KantiGames</h1></a>
+    <ul>
+        {% if session["logged_in"] %}
+        <li><span>{{ session['username'] }}</span>
+        <li><a href="{{ url_for('logout') }}">Log Out</a>
+            {% else %}
+        <li><a href="{{ url_for('register') }}">Register</a>
+        <li><a href="{{ url_for('login') }}">Log In</a>
+            {% endif %}
+    </ul>
+</nav>
     <hr>
     <div class="content">
         {% block content %} {% endblock %}

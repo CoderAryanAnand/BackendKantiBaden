@@ -1,6 +1,7 @@
 from flask import Flask, url_for, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+# TODO add authors to game table
 
 app = Flask(__name__)
 
