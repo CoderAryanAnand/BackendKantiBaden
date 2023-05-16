@@ -33,9 +33,12 @@ def game_1():
     print(username, file=sys.stderr)
     return render_template("G1.html", username)
 
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 6c350bc (game database, game implementation)
 
+=======
+>>>>>>> parent of 5e23ebb (games can now be implemented)
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
