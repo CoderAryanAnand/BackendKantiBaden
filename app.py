@@ -22,14 +22,14 @@ class User(db.Model):
 @app.route('/', methods=['GET'])
 def index():
     if session.get('logged_in'):
-        return render_template('home.html')
+        return render_template('home.html', title='Home')
     else:
-        return render_template('index.html', message="Hello!")
+        return render_template('index.html', message="Hello!", title="Login")
 
 
 @app.route("/Games/<game>", methods=("GET", "POST"))
 def game_1(game):
-    return render_template("Games/" + game + ".html")
+    return render_template("Games/" + game + ".html", title="Game 1")
 
 
 @app.route('/register/', methods=['GET', 'POST'])
@@ -43,7 +43,7 @@ def register():
         except:
             return render_template('index.html', message="User Already Exists")
     else:
-        return render_template('register.html')
+        return render_template('register.html', title="Register")
 
 
 @app.route('/login/', methods=['GET', 'POST'])
@@ -58,8 +58,9 @@ def login():
         if data is not None:
             if check_password_hash(data.password, p):
                 session['logged_in'] = True
+                session["username"] = u
                 return redirect(url_for('index'))
-        return render_template('index.html', message="Incorrect Details")
+        return render_template('index.html', message="Incorrect Details", title="Login")
 
 
 @app.route('/logout', methods=['GET', 'POST'])

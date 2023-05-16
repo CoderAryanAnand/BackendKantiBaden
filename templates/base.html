@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Flask Login</title>
+	{% if title %}
+     <title>{{title}}</title>
+{%else%}
+    <title>Login</title>
+{%endif%}
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}"/>
@@ -17,8 +21,19 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
 </head>
 <body>
+<nav>
+    <a class="action" href="/"><h1>KantiGames</h1></a>
+    <ul>
+        {% if session["logged_in"] %}
+        <li><span>{{ session['username'] }}</span>
+        <li><a href="{{ url_for('logout') }}">Log Out</a>
+            {% else %}
+        <li><a href="{{ url_for('register') }}">Register</a>
+        <li><a href="{{ url_for('login') }}">Log In</a>
+            {% endif %}
+    </ul>
+</nav>
 {% block content %}{% endblock %}
-	<footer><p style="text-align:center;">Template courtesy: colorlib</p></footer>
     <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
     <script src="{{ url_for('static', filename='vendor/animsition/js/animsition.min.js')}}"></script>
     <script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js')}}"></script>

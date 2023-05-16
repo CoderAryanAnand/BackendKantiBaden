@@ -1,38 +1,40 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
+<!--<!DOCTYPE html>-->
+<!--<html>-->
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Game 1</title>
+<!--  <head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Game 1</title>-->
 
-      <!-- YOUR GROUP CSS -->
-    <style>
+<!--      &lt;!&ndash; YOUR GROUP CSS &ndash;&gt;-->
+<!--    <style>-->
 
-#tic-tac-toe-board {
-  display: block;
-  margin: 0 auto;
-}
+<!--#tic-tac-toe-board {-->
+<!--  display: block;-->
+<!--  margin: 0 auto;-->
+<!--}-->
 
-.canvas-wrapper {
-  width: 100%;
-}
+<!--.canvas-wrapper {-->
+<!--  width: 100%;-->
+<!--}-->
 
-.canvas-wrapper-parent {
-  transform-style: preserver-3d;
-}
-    </style>
-      <!--- END OF CSS -->
-    <title>TEST - KantiGames</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  </head>
+<!--.canvas-wrapper-parent {-->
+<!--  transform-style: preserver-3d;-->
+<!--}-->
+<!--    </style>-->
+<!--      &lt;!&ndash;- END OF CSS &ndash;&gt;-->
+<!--    <title>TEST - KantiGames</title>-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+<!--  </head>-->
 
-  <body>
+<!--  <body>-->
     <!-- Title -->
 
 
     <!-- Game -->
 
     <!-- INSERT HTML + JS HERE -->
+{% block content %}
 
     <div class="center-wrapper-parent">
       <div class="canvas-wrapper">
@@ -187,13 +189,27 @@
       });
 
     </script>
+    <style>
 
+#tic-tac-toe-board {
+  display: block;
+  margin: 0 auto;
+}
+
+.canvas-wrapper {
+  width: 100%;
+}
+
+.canvas-wrapper-parent {
+  transform-style: preserver-3d;
+}
+    </style>
     <!-- END OF YOUR OWN HTML + JS-->
 
 
     <!-- Reviews/Content -->
+{% endblock %}
 
+<!--  </body>-->
 
-  </body>
-
-</html>
+<!--</html>-->
