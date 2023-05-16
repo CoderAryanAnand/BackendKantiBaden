@@ -27,11 +27,17 @@ def index():
         return render_template('index.html', message="Hello!")
 
 
+@app.route("/Games/<game>", methods=("GET", "POST"))
+def game_1(game):
+    return render_template("Games/" + game + ".html")
+
+
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         try:
-            db.session.add(User(username=request.form['username'], password=generate_password_hash(request.form['password'])))
+            db.session.add(
+                User(username=request.form['username'], password=generate_password_hash(request.form['password'])))
             db.session.commit()
             return redirect(url_for('login'))
         except:
@@ -61,7 +67,8 @@ def logout():
     session['logged_in'] = False
     return redirect(url_for('index'))
 
+
 if __name__ == '__main__':
     app.secret_key = "ThisIsNotASecret:p"
     db.create_all()
-    app.run()
+    app.run(debug=True)
