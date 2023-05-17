@@ -102,6 +102,7 @@ def login():
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     session['logged_in'] = False
+    session["username"] = None
     return redirect(url_for('index'))
 
 
