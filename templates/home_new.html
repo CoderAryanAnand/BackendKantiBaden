@@ -20,6 +20,12 @@
                     <p>{{ game.description }}</p>
                 </div>
                 <hr>
+                {{ game.likes|length }}
+                {% if session["user_id"] in game.likes|map(attribute="author")|list %}
+                <a href="/like-game/{{ game.id }}"><i class="fas fa-thumbs-up"></i></a>
+                {% else %}
+                <a href="/like-game/{{ game.id }}"><i class="far fa-thumbs-up"></i></a>
+                {% endif %}
             </div>
 
         {% endfor %}

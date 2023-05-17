@@ -1,4 +1,4 @@
-from flask import Flask, url_for, render_template, request, redirect, session
+from flask import Flask, url_for, render_template, request, redirect, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 # TODO add authors to game table
@@ -14,6 +14,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
+    likes = db.relationship("Like", backref="user")
 
     def __init__(self, username, password):
         self.username = username
@@ -27,6 +28,7 @@ class Game(db.Model):
     title = db.Column(db.String(100))
     description = db.Column(db.Text)
     comments = db.relationship('Comment', backref='game')
+    likes = db.relationship('Like', backref='game')
 
     def __repr__(self):
         return f'<Game "{self.title}">'
@@ -40,6 +42,13 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f'<Comment "{self.content[:20]}...">'
+
+
+class Like(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
+    author = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
 
 
 @app.route('/', methods=['GET'])
@@ -68,6 +77,24 @@ def game_(game_id):
     return render_template("Games/" + name + ".html", title=game.title, game=game)
 
 
+@app.route("/like-game/<game_id>", methods=["GET"])
+def like(game_id):
+    if session["logged_in"]:
+        game = Game.query.filter_by(id=game_id)
+        like = Like.query.filter_by(author=session["user_id"], game_id=game_id).first()
+
+        if not game:
+            flash("Game doesn't exist", category="error")
+        elif like:
+            db.session.delete(like)
+            db.session.commit()
+        else:
+            like = Like(author=session["user_id"], game_id=game_id)
+            db.session.add(like)
+            db.session.commit()
+    return redirect(url_for("index"))
+
+
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -90,11 +117,11 @@ def login():
         u = request.form['username']
         p = request.form['password']
         data = User.query.filter_by(username=u).first()
-        print(data)
         if data is not None:
             if check_password_hash(data.password, p):
                 session['logged_in'] = True
                 session["username"] = u
+                session["user_id"] = data.id
                 return redirect(url_for('index'))
         return render_template('index.html', message="Incorrect Details", title="Login")
 
