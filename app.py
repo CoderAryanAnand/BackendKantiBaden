@@ -1,12 +1,22 @@
-from flask import Flask, url_for, render_template, request, redirect, session, flash, jsonify
+from flask import (
+    Flask,
+    url_for,
+    render_template,
+    request,
+    redirect,
+    session,
+    flash,
+    jsonify,
+)
 from flask_sqlalchemy import SQLAlchemy
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
+
 # TODO add authors to game table
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 app.app_context().push()
 db = SQLAlchemy(app)
 
@@ -28,8 +38,8 @@ class Game(db.Model):
     authors = db.Column(db.String(100))
     title = db.Column(db.String(100))
     description = db.Column(db.Text)
-    comments = db.relationship('Comment', backref='game')
-    likes = db.relationship('Like', backref='game')
+    comments = db.relationship("Comment", backref="game")
+    likes = db.relationship("Like", backref="game")
 
     def __repr__(self):
         return f'<Game "{self.title}">'
@@ -39,7 +49,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(100))
     content = db.Column(db.Text)
-    game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
+    game_id = db.Column(db.Integer, db.ForeignKey("game.id"))
 
     def __repr__(self):
         return f'<Comment "{self.content[:20]}...">'
@@ -47,7 +57,7 @@ class Comment(db.Model):
 
 class Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
+    game_id = db.Column(db.Integer, db.ForeignKey("game.id"), nullable=False)
     author = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 
@@ -55,16 +65,18 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not session["logged_in"]:
-            return redirect(url_for('login', next=request.url))
+            return redirect(url_for("login", next=request.url))
         return f(*args, **kwargs)
+
     return decorated_function
 
 
-@app.route('/', methods=['GET'])
+@app.route("/", methods=["GET"])
 def index():
     # return render_template('home.html', title='Home')
     games = Game.query.all()
-    return render_template('home_new.html', title='Home', games=games)
+    return render_template("home_new.html", title="Home", games=games)
+
 
 # @app.route("/Games/<game>", methods=("GET", "POST"))
 # def game_1(game):
@@ -74,11 +86,13 @@ def index():
 @login_required
 def game_(game_id):
     game = Game.query.get_or_404(game_id)
-    if request.method == 'POST':
-        comment = Comment(content=request.form['content'], game=game, author=session["username"])
+    if request.method == "POST":
+        comment = Comment(
+            content=request.form["content"], game=game, author=session["username"]
+        )
         db.session.add(comment)
         db.session.commit()
-        return redirect(url_for('game_', game_id=game.id))
+        return redirect(url_for("game_", game_id=game.id))
     name = game.name
     return render_template("Games/" + name + ".html", title=game.title, game=game)
 
@@ -98,48 +112,57 @@ def like(game_id):
         like = Like(author=session["user_id"], game_id=game_id)
         db.session.add(like)
         db.session.commit()
-    return jsonify({"likes": len(game.likes), "liked": session["user_id"] in map(lambda x: x.author, game.likes)})
+    return jsonify(
+        {
+            "likes": len(game.likes),
+            "liked": session["user_id"] in map(lambda x: x.author, game.likes),
+        }
+    )
 
 
-@app.route('/register/', methods=['GET', 'POST'])
+@app.route("/register/", methods=["GET", "POST"])
 def register():
-    if request.method == 'POST':
+    if request.method == "POST":
         try:
             db.session.add(
-                User(username=request.form['username'], password=generate_password_hash(request.form['password'])))
+                User(
+                    username=request.form["username"],
+                    password=generate_password_hash(request.form["password"]),
+                )
+            )
             db.session.commit()
-            return redirect(url_for('login'))
+            return redirect(url_for("login"))
         except:
-            return render_template('index.html', message="User Already Exists")
+            return render_template("index.html", message="User Already Exists")
     else:
-        return render_template('register.html', title="Register")
+        return render_template("register.html", title="Register")
 
 
-@app.route('/login/', methods=['GET', 'POST'])
+@app.route("/login/", methods=["GET", "POST"])
 def login():
-    if request.method == 'GET':
-        return render_template('login.html')
+    if request.method == "GET":
+        return render_template("login.html")
     else:
-        u = request.form['username']
-        p = request.form['password']
+        u = request.form["username"]
+        p = request.form["password"]
         data = User.query.filter_by(username=u).first()
         if data is not None:
             if check_password_hash(data.password, p):
-                session['logged_in'] = True
+                session["logged_in"] = True
                 session["username"] = u
                 session["user_id"] = data.id
-                return redirect(url_for('index'))
-        return render_template('index.html', message="Incorrect Details", title="Login")
+                return redirect(url_for("index"))
+        return render_template("index.html", message="Incorrect Details", title="Login")
 
 
-@app.route('/logout', methods=['GET', 'POST'])
+@app.route("/logout", methods=["GET", "POST"])
 def logout():
-    session['logged_in'] = False
+    session["logged_in"] = False
     session["username"] = None
-    return redirect(url_for('index'))
+    return redirect(url_for("index"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.secret_key = "ThisIsNotASecret:p"
     db.create_all()
     app.run(debug=True)
