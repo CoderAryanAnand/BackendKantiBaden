@@ -25,6 +25,7 @@ class Game(db.Model):
     name = db.Column(db.String(100))
     authors = db.Column(db.String(100))
     title = db.Column(db.String(100))
+    description = db.Column(db.Text)
     comments = db.relationship('Comment', backref='game')
 
     def __repr__(self):
