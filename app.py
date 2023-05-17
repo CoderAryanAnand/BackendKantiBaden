@@ -23,6 +23,7 @@ class User(db.Model):
 class Game(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
+    authors = db.Column(db.String(100))
     title = db.Column(db.String(100))
     comments = db.relationship('Comment', backref='game')
 
@@ -32,6 +33,7 @@ class Game(db.Model):
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(100))
     content = db.Column(db.Text)
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
 
@@ -57,7 +59,7 @@ def index():
 def game_(game_id):
     game = Game.query.get_or_404(game_id)
     if request.method == 'POST':
-        comment = Comment(content=request.form['content'], game=game)
+        comment = Comment(content=request.form['content'], game=game, author=session["username"])
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('game_', game_id=game.id))

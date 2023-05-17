@@ -230,6 +230,7 @@
                 {% for comment in game.comments %}
                     <div class="comment">
                         <p>#{{ comment.id }}</p>
+                        <p>by {{ comment.author }}</p>
                         <p>{{ comment.content }}</p>
                     </div>
                 {% endfor %}
