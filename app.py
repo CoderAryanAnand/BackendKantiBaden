@@ -1,5 +1,6 @@
-from flask import Flask, url_for, render_template, request, redirect, session, flash
+from flask import Flask, url_for, render_template, request, redirect, session, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 # TODO add authors to game table
 
@@ -50,22 +51,27 @@ class Like(db.Model):
     author = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session["logged_in"]:
+            return redirect(url_for('login', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
+
 
 @app.route('/', methods=['GET'])
 def index():
-    if session.get('logged_in'):
-        # return render_template('home.html', title='Home')
-        games = Game.query.all()
-        return render_template('home_new.html', title='Home', games=games)
-    else:
-        return render_template('index.html', message="Hello!", title="Login")
-
+    # return render_template('home.html', title='Home')
+    games = Game.query.all()
+    return render_template('home_new.html', title='Home', games=games)
 
 # @app.route("/Games/<game>", methods=("GET", "POST"))
 # def game_1(game):
 #     return render_template("Games/" + game + ".html", title="Game 1")
 #
 @app.route("/<int:game_id>", methods=("GET", "POST"))
+@login_required
 def game_(game_id):
     game = Game.query.get_or_404(game_id)
     if request.method == 'POST':
@@ -77,22 +83,22 @@ def game_(game_id):
     return render_template("Games/" + name + ".html", title=game.title, game=game)
 
 
-@app.route("/like-game/<game_id>", methods=["GET"])
+@app.route("/like-game/<game_id>", methods=["POST"])
+@login_required
 def like(game_id):
-    if session["logged_in"]:
-        game = Game.query.filter_by(id=game_id)
-        like = Like.query.filter_by(author=session["user_id"], game_id=game_id).first()
+    game = Game.query.filter_by(id=game_id).first()
+    like = Like.query.filter_by(author=session["user_id"], game_id=game_id).first()
 
-        if not game:
-            flash("Game doesn't exist", category="error")
-        elif like:
-            db.session.delete(like)
-            db.session.commit()
-        else:
-            like = Like(author=session["user_id"], game_id=game_id)
-            db.session.add(like)
-            db.session.commit()
-    return redirect(url_for("index"))
+    if not game:
+        return jsonify({"error": "Game does not exist"}, 400)
+    elif like:
+        db.session.delete(like)
+        db.session.commit()
+    else:
+        like = Like(author=session["user_id"], game_id=game_id)
+        db.session.add(like)
+        db.session.commit()
+    return jsonify({"likes": len(game.likes), "liked": session["user_id"] in map(lambda x: x.author, game.likes)})
 
 
 @app.route('/register/', methods=['GET', 'POST'])
