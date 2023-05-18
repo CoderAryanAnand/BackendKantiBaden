@@ -26,6 +26,9 @@
                 {% else %}
                 <i class="far fa-thumbs-up" id="like-button-{{game.id}}" onclick="like({{game.id}})"></i>
                 {% endif %}
+                <span> | </span>
+                <span>{{ game.comments|length }}</span>
+                <i class="far fa-comment-dots"></i>
             </div>
 
         {% endfor %}
