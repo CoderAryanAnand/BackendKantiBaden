@@ -170,8 +170,9 @@
    }
 </style>
 <hr>
-<h3 class="m-l-50">Comments</h3>
-<form method="post" class="m-l-50">
+<section id="comments">
+<h3 class="m-l-30">Comments</h3>
+<form method="post" class="m-l-30">
    <p>
       <textarea name="content"
          placeholder="Comment"
@@ -183,10 +184,10 @@
    </p>
 </form>
 {% for comment in game.comments %}
-<div class="comment m-l-40 m-t-10 m-b-10 m-r-10">
+<div class="comment m-l-20 m-t-10 m-b-10 m-r-10">
    <p>#{{ comment.id }}</p>
    <p>by {{ comment.author }}</p>
    <p>{{ comment.content }}</p>
-</div>
+</div></section>
 {% endfor %}
 {% endblock %}
