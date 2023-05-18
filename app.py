@@ -12,8 +12,6 @@ from flask_sqlalchemy import SQLAlchemy
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 
-# TODO add authors to game table
-
 app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
@@ -73,15 +71,10 @@ def login_required(f):
 
 @app.route("/", methods=["GET"])
 def index():
-    # return render_template('home.html', title='Home')
     games = Game.query.all()
     return render_template("home_new.html", title="Home", games=games)
 
 
-# @app.route("/Games/<game>", methods=("GET", "POST"))
-# def game_1(game):
-#     return render_template("Games/" + game + ".html", title="Game 1")
-#
 @app.route("/<int:game_id>", methods=("GET", "POST"))
 @login_required
 def game_(game_id):
