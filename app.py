@@ -62,9 +62,12 @@ class Like(db.Model):
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if not session["logged_in"]:
+        try:
+            if not session["logged_in"]:
+                return redirect(url_for("login", next=request.url))
+            return f(*args, **kwargs)
+        except KeyError:
             return redirect(url_for("login", next=request.url))
-        return f(*args, **kwargs)
 
     return decorated_function
 
