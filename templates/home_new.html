@@ -20,7 +20,6 @@
                     <p>{{ game.description }}</p>
                 </div>
                 <hr>
-                <div>
                 <span id="likes-count-{{game.id}}">{{ game.likes|length }}</span>
                 {% if session["user_id"] in game.likes|map(attribute="author")|list %}
                 <i class="fas fa-thumbs-up" id="like-button-{{game.id}}" onclick="like({{game.id}})"></i>
@@ -30,7 +29,8 @@
                 <span> | </span>
                 <span>{{ game.comments|length }}</span>
                 <a href="/{{ game.id }}#comments"><i class="far fa-comment-dots"></i></a>
-                </div>
+                <span> | </span>
+                <a class="copy_text" href="/{{ game.id }}"><i class="fas fa-share"></i></a>
             </div>
 
         {% endfor %}

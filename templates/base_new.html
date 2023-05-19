@@ -43,6 +43,7 @@
     </style>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
     <script src="https://kit.fontawesome.com/7edca456b2.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -62,6 +63,6 @@
     <div class="content">
         {% block content %} {% endblock %}
     </div>
-<script type="text/javascript" src="{{ url_for('static', filename='js/likes.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/likes_and_share.js')}}"></script>
 </body>
 </html>
