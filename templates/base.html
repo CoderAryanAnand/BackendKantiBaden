@@ -7,7 +7,9 @@
     <title>Login</title>
 {%endif%}
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+    	{% block style %}
+    	{% endblock %}
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
