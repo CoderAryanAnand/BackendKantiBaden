@@ -4,7 +4,7 @@ Grundsätzlich muss nur eine .html Datei, eine Text Datei und ein Folder mit den
 
 # Dateien
 
-Zuerst muss man die template_submission.html Datei herunterladen. Dies ist die Vorlage für die Abgabe-Datei. Nennt sie dann zu der Nummer euer Gruppe um (z.b. 201.html oder 202.html)
+Zuerst muss man die submission_template.html Datei herunterladen. Dies ist die Vorlage für die Abgabe-Datei. Nennt sie dann zu der Nummer euer Gruppe um (z.b. 201.html oder 202.html)
 
 ## HTML Datei
 
