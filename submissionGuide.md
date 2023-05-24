@@ -33,5 +33,7 @@ Als letztes benötigt es noch einen Ordner, der alle Resourcen (Bilder, Sprites,
 Die fertige Datei Struktur sollte in etwa so aussehen:
 
  -HTMLDatei.html
+ 
  -Ordner
+ 
  ----- BeispielBild.png
