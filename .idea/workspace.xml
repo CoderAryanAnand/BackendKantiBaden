@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/reset_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/203.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/208.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/209.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/210.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/Chess2/201.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/ghcz.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/ghcz_texture_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/splash.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/init_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/G1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-    </list>
+    <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +98,14 @@
       <option name="presentableId" value="Default" />
       <updated>1683700402058</updated>
     </task>
+    <task id="LOCAL-00001" summary="implementation and reworking CSS">
+      <created>1685533228935</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685533228935</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +118,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implementation and reworking CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementation and reworking CSS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
