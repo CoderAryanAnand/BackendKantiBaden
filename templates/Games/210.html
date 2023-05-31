@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- HTML -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color by Number Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+  .confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  .confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+</style>
+
+</head>
+<body>
+    <h1>Color by Number Game</h1>
+    <div id="grid-container"></div>
+    <div id="color-palette">
+        <h2>Color Palette</h2>
+        <div class="color" data-color="#500000" data-number="1" style="background-color: #500000;"></div>
+        <div class="color" data-color="#800000" data-number="2" style="background-color: #800000;"></div>
+        <div class="color" data-color="red" data-number="3" style="background-color: red;"></div>
+        <div class="color" data-color="#FF6666" data-number="4" style="background-color: #FF6666;"></div>
+        <div class="color" data-color="#FF9999" data-number="5" style="background-color: #FF9999;"></div>
+        <div class="color" data-color="lightblue" data-number="6" style="background-color: lightblue;"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<!-- JAVASCRIPT -->
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const gridContainer = document.getElementById('grid-container');
+  const colors = document.getElementsByClassName('color');
+  const grid = [];
+
+  const sequence = [
+    "6666666666666",
+    "6666666666666",
+    "6661166611666",
+    "6612216122166",
+    "6122421242216",
+    "6123342433216",
+    "6123354533216",
+    "6612345432166",
+    "6661234321666",
+    "6666123216666",
+    "6666612166666",
+    "6666661666666",
+    "6666666666666"
+  ];
+
+  for (let i = 0; i < 13; i++) {
+    grid[i] = [];
+    for (let j = 0; j < 13; j++) {
+      const cell = document.createElement('div');
+      cell.className = 'grid-cell';
+      const number = sequence[i][j];
+      cell.dataset.number = number;
+      cell.innerText = number;
+      grid[i][j] = cell;
+      gridContainer.appendChild(cell);
+    }
+  }
+
+  gridContainer.addEventListener('click', (event) => {
+    const clickedCell = event.target;
+    if (clickedCell.className === 'grid-cell') {
+      const number = clickedCell.dataset.number;
+      const selectedColor = document.querySelector('.color.selected');
+      if (selectedColor && selectedColor.dataset.number === number) {
+        const color = selectedColor.dataset.color;
+        clickedCell.style.backgroundColor = color;
+        clickedCell.innerText = '';
+        checkCompletion();
+      }
+    }
+  });
+
+  function checkCompletion() {
+    const allCells = document.getElementsByClassName('grid-cell');
+    let allColored = true;
+    for (let i = 0; i < allCells.length; i++) {
+      if (!allCells[i].style.backgroundColor) {
+        allColored = false;
+        break;
+      }
+    }
+    if (allColored) {
+      showCongratulations();
+      triggerConfetti();
+    }
+  }
+
+  function showCongratulations() {
+    const message = document.createElement('div');
+    message.textContent = 'Congratulations!';
+    message.className = 'congratulations';
+    gridContainer.appendChild(message);
+  }
+
+  function triggerConfetti() {
+    // Add your confetti effect code here.
+    // You can use external libraries like confetti.js or implement your own solution.
+    }
+  for (let i = 0; i < colors.length; i++) {
+    colors[i].addEventListener('click', (event) => {
+      const clickedColor = event.target;
+      const selectedColor = document.querySelector('.color.selected');
+      if (selectedColor) {
+        selectedColor.classList.remove('selected');
+      }
+      clickedColor.classList.add('selected');
+    });
+  }
+});
+
+
+</script>
+
+<!-- CSS -->
+<style>
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(13, 1fr);
+    gap: 1px;
+    width: 270px; /* Adjust the width to fit the new grid size */
+    margin-bottom: 20px;
+}
+
+.grid-cell {
+    background-color: #ddd;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    line-height: 30px;
+}
+#color-palette {
+    margin-top: 20px;
+}
+
+.color {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.indigo {
+    background-color: indigo;
+}
+
+.violet {
+    background-color: violet;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.black {
+    background-color: black;
+}
+</style>
+
+<hr>
+<section id="comments">
+<h3 class="m-l-30">Comments</h3>
+<form method="post" class="m-l-30">
+<p>
+<textarea name="content"
+placeholder="Comment"
+cols="60"
+rows="5"></textarea>
+</p>
+<p>
+<button type="submit">Add comment</button>
+</p>
+</form>
+{% for comment in game.comments %}
+<div class="comment m-l-20 m-t-10 m-b-10 m-r-10">
+<p>#{{ comment.id }}</p>
+<p>by {{ comment.author }}</p>
+<p>{{ comment.content }}</p>
+</div></section>
+{% endfor %}
+{% endblock %}

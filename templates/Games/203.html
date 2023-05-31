@@ -1,0 +1,321 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Minewseeper</title>
+    <script src="script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css"></link>
+  </head>
+  <body>
+
+    <h1 id = show></h1>
+    <p1> left mouse button to uncover square, right mouse button to place flag </p1>
+      
+    <div id="stopwatch-container">
+      <div id="stopwatch">00:00:00</div>
+    </div>
+
+<div class="grid"></div>
+
+  </body>
+</html>
+
+
+<!-- JAVASCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.querySelector(".grid")
+  let width = 10
+  let bombCount = 20
+  let squares = []
+  let gameOver = false
+  let flags = 0
+
+
+  //timer
+  let ms = 0
+  let sec = 0
+  let min = 0
+
+  function start(flag) {
+    
+    timeoutId = setTimeout(function() {
+        ms = parseInt(ms);
+        sec = parseInt(sec);
+        min = parseInt(min);
+ 
+        ms++;
+ 
+        if (ms == 100) {
+            sec = sec + 1;
+            ms = 0;
+        }
+        if (sec == 60) {
+            min = min + 1;
+            sec = 0;
+        }
+        if (ms < 10) {
+            ms = '0' + ms;
+        }
+        if (sec < 10) {
+            sec = '0' + sec;
+        }
+        if (min < 10) {
+            min = '0' + min;
+        }
+ 
+        stopwatch.innerHTML = min + ':' + sec + ':' + ms;
+ 
+        start();
+ 
+    }, 10);
+ }
+ 
+ function pause() {
+    clearTimeout(timeoutId)
+ }
+  
+
+
+
+  function createBoard() {
+    const bombsArray = Array(bombCount).fill("bomb");
+    const emptyArray = Array(width * width - bombCount).fill("valid");
+    const gamesArray = emptyArray.concat(bombsArray);
+    const shuffleArray = gamesArray.sort(() => Math.random() - 0.5);
+
+    for (let i = 0; i < 100; i++) {
+      const square = document.createElement("div");
+      square.setAttribute("id", i)
+      square.classList.add(shuffleArray[i])
+      grid.appendChild(square)
+      squares.push(square)
+
+      square.addEventListener("click", function(e) {
+        click(square)
+      })
+
+      square.oncontextmenu = function(e) {
+        e.preventDefault()
+        addFlag(square)
+      }
+    }
+
+    for (let i = 0; i < squares.length; i++) {
+      let total = 0
+      const leftEdge = i % width === 0;
+      const rightEdge = i % width === width - 1;
+      if (squares[i].classList.contains("valid")) {
+        if (i > 10 && !leftEdge && squares[i - 1 - width].classList.contains("bomb")) total ++
+        if (i > 9 && squares[i - width].classList.contains("bomb")) total ++
+        if (i > 9 && !rightEdge && squares[i + 1 - width].classList.contains("bomb")) total ++
+        if (!rightEdge && squares[i + 1].classList.contains("bomb")) total ++
+        if (i < 89 && !rightEdge && squares[i + 1 +width].classList.contains("bomb")) total ++
+        if (i < 90 && squares[i + width].classList.contains("bomb")) total ++
+        if (i < 90 && !leftEdge && squares[i -1 + width].classList.contains("bomb")) total ++
+        if (!leftEdge && squares[i - 1].classList.contains("bomb")) total ++
+        squares[i].setAttribute("data", total)
+      }
+    }
+    start(true)
+  }
+
+  createBoard()
+
+
+
+ //gameplay 
+
+  function addFlag(square) {
+    if (gameOver === true) return
+    if (!square.classList.contains("checked") && (flags < bombCount)) {
+      if (!square.classList.contains("flag")) {
+        square.classList.add("flag")
+        square.innerHTML = "flag"
+        flags ++
+        checkWin()
+      } else {
+        square.classList.remove("flag")
+        square.innerHTML = ""
+        flags --
+      }
+    }
+  }
+
+ //what happens when you click/recursion
+  function click(square) {
+    let currentId = square.id
+    if (gameOver === true) return
+    if (square.classList.contains("checked") || square.classList.contains("flag")) return
+    if (square.classList.contains("bomb")) {
+      fGameOver(square)
+    } else {
+      let total = square.getAttribute("data")
+
+      if (total !=0) {
+        square.classList.add("checked")
+        checkWin()
+        square.innerHTML = total
+        return
+      }
+      checkSquare(square, currentId)
+    }
+    square.classList.add("checked")
+  }
+
+  
+ //empty square check
+  function checkSquare(square, currentId){
+    const leftEdge = (currentId % width === 0)
+    const rightEdge = (currentId % width === width - 1)
+
+    setTimeout(() => {     
+      if (currentId > 10 && !leftEdge) {
+        const newId = squares[parseInt(currentId) -1 - width].id
+        const newSquare = document.getElementById(newId)
+        click(newSquare)
+      }
+      if (currentId > 9) {
+        const newId = squares[parseInt(currentId) - width].id
+        const newSquare = document.getElementById(newId)
+        click(newSquare)
+      }
+      if (currentId > 9 && !rightEdge) {
+        const newId = squares[parseInt(currentId) + 1 - width].id
+        const newSquare = document.getElementById(newId)
+        click(newSquare)
+      }
+      if (!rightEdge) {
+        const newId = squares[parseInt(currentId) +1].id 
+        const newSquare = document.getElementById(newId)
+        click(newSquare)
+      }
+      if (currentId < 89 && ! rightEdge) {
+        const newId = squares[parseInt(currentId) + 1 + width].id
+        const newSquare = document.getElementById(newId)
+        click(newSquare)
+      }
+      if (currentId < 90) {
+        const newId = squares[parseInt(currentId) + width].id
+        const newSquare = document.getElementById(newId)
+        click(newSquare)
+      }
+      if (currentId < 90 && !leftEdge) {
+        const newId = squares[parseInt(currentId) - 1 + width].id
+        const newSquare = document.getElementById(newId)
+        click(newSquare)
+      }
+      if (!leftEdge) {
+        const newId = squares[parseInt(currentId) - 1].id
+        const newSquare = document.getElementById(newId)
+        click(newSquare)
+      }
+    }, 10)
+  }
+
+
+  function fGameOver(square) {
+    console.log("game over")
+    gameOver = true
+    document.getElementById("show").innerHTML = 
+    "Too bad you lost. To restart reload the page."
+    squares.forEach(square => {
+      if (square.classList.contains("bomb")) {
+        square.innerHTML = "Bomb"
+      }
+    })
+    squares.forEach(square => {
+      if (square.classList.contains("bomb")) {
+        square.classList.add("confirmedBomb")
+      }
+    })
+    pause()
+  }
+
+  function checkWin() {
+    let matches = 0
+    console.log("check")
+    for (let i = 0; i< squares.length; i++) {
+      if (squares[i].classList.contains("checked") && !squares[i].classList.contains("bomb") ||
+       squares[i].classList.contains("flag") && squares[i].classList.contains("bomb")) {
+        matches++
+      }
+      if (matches === width*width-bombCount) {
+        console.log("win")
+        gameOver = true
+        pause()
+        document.getElementById("show").innerHTML =
+         "GREAT you won in" + " " + min + " " + "minutes" + " " + sec + " " + "seconds" + " " + ms + " " + "ms"
+        squares.forEach(square => {
+        if (square.classList.contains("bomb")) {
+          square.classList.add("confirmedBomb")
+        }
+      })
+      }
+    }
+  }
+
+
+
+});
+</script>
+
+<!-- CSS -->
+<style>
+.grid {
+  height: 420px;
+  width: 420px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: grey;
+}
+
+.grid div {
+  height: 40px;
+  width: 40px;
+  border: 1px solid darkslategray;
+}
+
+.checked {
+background-color: yellow;
+}
+
+.bomb {
+  background-color: grey;
+}
+
+.flag {
+  background-color: blue;
+}
+
+.confirmedBomb {
+  background-color: red;
+}
+</style>
+
+<hr>
+<section id="comments">
+<h3 class="m-l-30">Comments</h3>
+<form method="post" class="m-l-30">
+<p>
+<textarea name="content"
+placeholder="Comment"
+cols="60"
+rows="5"></textarea>
+</p>
+<p>
+<button type="submit">Add comment</button>
+</p>
+</form>
+{% for comment in game.comments %}
+<div class="comment m-l-20 m-t-10 m-b-10 m-r-10">
+<p>#{{ comment.id }}</p>
+<p>by {{ comment.author }}</p>
+<p>{{ comment.content }}</p>
+</div></section>
+{% endfor %}
+{% endblock %}

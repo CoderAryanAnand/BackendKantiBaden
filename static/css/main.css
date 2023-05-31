@@ -23,7 +23,12 @@
 	padding: 0px; 
 	box-sizing: border-box;
 }
-
+#comments{
+    background-color: rgb(208, 208, 208) !important;
+    }
+.comment{
+    color: white;
+}
 body, html {
 	height: 100%;
 	font-family: Ubuntu-Regular, sans-serif;

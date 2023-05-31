@@ -1,0 +1,1533 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- HTML -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="chess2style.css">
+</head>
+<body>
+
+<div id="endscene">
+	<p class="winning-sign">white wins</p>
+	<div class="overlay">
+	</div>
+</div>
+	
+<script>
+	if(screen.availHeight > screen.availWidth){
+    alert("Please use Landscape!");
+}
+</script>
+
+<div id="WhiteSummary">White's Summary
+	<p id="wturnnr">Turn Nr 0</p>
+	<table>
+		<tr>
+			<th><img src="img/mandarine.png" width= "70px"></th>
+			<th id="wmandarins">:0</th>
+			<th id="wskipbutton"><img src="img/buttonpressed.png" onclick="maraultwhite()" width= "80px"></th>
+		</tr>
+		<tr>
+			<th><img src="img/finger.png" width= "70px"></th>
+			<th id="wfingers">:0</th>
+			<th id="wnoult"><img src="img/buttonpressed.png" onclick="goblultwhite()" width= "80px"></th>
+		</tr>
+		<tr>
+			<th><img src="img/gunblack.png" width= "70px"></th>
+			<th id="wguns">:0</th>
+			<th id="wblind"><img src="img/buttonpressed.png" onclick="gobulthwite()" width= "80px"></th>
+		</tr>
+	</table>
+</div>
+
+<div id="BlackSummary">Black's Summary
+	<p id="bturnnr">Turn Nr 0</p>
+	<table>
+		<tr>
+			<th><img src="img/mandarine.png" width= "70px"></th>
+			<th id="bmandarins">:0</th>
+			<th id="bskipbutton"><img src="img/buttonpressed.png" onclick="maraultblack()" width= "80px"></th>
+		</tr>
+		<tr>
+			<th><img src="img/finger.png" width= "70px"></th>
+			<th id="bfingers">:0</th>
+			<th id="bnoult"><img src="img/buttonpressed.png" onclick="goblultblack()" width= "80px"></th>
+		</tr>
+		<tr>
+			<th><img src="img/gunblack.png" width= "70px"></th>
+			<th id="bguns">:0</th>
+			<th id="bblind"><img src="img/buttonpressed.png" onclick="gobultblack()" width= "80px"></th>
+		</tr>
+	</table>
+</div>
+
+<br>
+<div style="width:600px;margin:auto;position:relative;">
+
+	<div id="board">
+		<div id="final" class="odd">
+			<div id="81" class="square" data-square="8-a">
+				<img class="piece gobl" id="blackGobl" src="img/blackGobl.png">
+			</div>
+			<div id="82" class="square" data-square="8-b">
+				<img class="piece knight" id="blackKnight1" src="img/blackKnight.png">
+			</div>
+			<div id="83" class="square" data-square="8-c">
+				<img class="piece bishop" id="blackBishop1" data-color="black" src="img/blackBishop.png">
+			</div>
+			<div id="84" class="square" data-square="8-d">
+				<img class="piece bking" id="blackQueen" data-color="black" src="img/blackQueen.png">
+			</div>
+			<div id="85" class="square" data-square="8-e">
+				<img class="piece bking" id="blackKing" data-color="black" src="img/blackKing.png">
+			</div>
+			<div id="86" class="square" data-square="8-f">
+				<img class="piece gob" id="blackGob" data-color="black" src="img/blackGob.png">
+			</div>
+			<div id="87" class="square" data-square="8-g">
+				<img class="piece bking" id="blackKnight2" data-color="black" src="img/blackKnight.png">
+			</div>
+			<div id="88" class="square" data-square="8-h">
+				<img class="piece rook" id="blackRook2" src="img/blackRook.png">
+			</div>
+		</div>
+		<div class="even">
+			<div id="71" class="square" data-square="7-a">
+				<img class="piece pawn" id="blackPawn1" src="img/blackPawn.png">
+			</div>
+			<div id="72" class="square" data-square="7-b">
+				<img class="piece pawn" id="blackPawn2" src="img/blackPawn.png">
+			</div>
+			<div id="73" class="square" data-square="7-c">
+				<img class="piece pawn" id="blackPawn3" src="img/blackPawn.png">
+			</div>
+			<div id="74" class="square" data-square="7-d">
+				<img class="piece pawn" id="blackPawn4" src="img/blackPawn.png">
+			</div>
+			<div id="75" class="square" data-square="7-e">
+				<img class="piece supe" id="blackSupe" src="img/blackSupe.png">
+			</div>
+			<div id="76" class="square" data-square="7-f">
+				<img class="piece pawn" id="blackPawn6" src="img/blackPawn.png">
+			</div>
+			<div id="77" class="square" data-square="7-g">
+				<img class="piece onetwo" id="blackOnetwo" src="img/blackOnetwo.png">
+			</div>
+			<div id="78" class="square" data-square="7-h">
+				<img class="piece pawn" id="blackPawn7" src="img/blackPawn.png">
+			</div>
+		
+		</div>
+		<div class="odd">
+			<div id="61" class="square" data-square="6-a"></div>
+			<div id="62" class="square" data-square="6-b"></div>
+			<div id="63" class="square" data-square="6-c"></div>
+			<div id="64" class="square" data-square="6-d"></div>
+			<div id="65" class="square" data-square="6-e"></div>
+			<div id="66" class="square" data-square="6-f"></div>
+			<div id="67" class="square" data-square="6-g"></div>
+			<div id="68" class="square" data-square="6-h"></div>
+		</div>
+		<div class="even">
+			<div id="51" class="square" data-square="5-a"></div>
+			<div id="52" class="square" data-square="5-b"></div>
+			<div id="53" class="square" data-square="5-c"></div>
+			<div id="54" class="square" data-square="5-d"></div>
+			<div id="55" class="square" data-square="5-e"></div>
+			<div id="56" class="square" data-square="5-f"></div>
+			<div id="57" class="square" data-square="5-g"></div>
+			<div id="58" class="square" data-square="5-h"></div>
+		</div>
+		<div class="odd">
+			<div id="41" class="square" data-square="4-a"></div>
+			<div id="42" class="square" data-square="4-b"></div>
+			<div id="43" class="square" data-square="4-c"></div>
+			<div id="44" class="square" data-square="4-d"></div>
+			<div id="45" class="square" data-square="4-e"></div>
+			<div id="46" class="square" data-square="4-f"></div>
+			<div id="47" class="square" data-square="4-g"></div>
+			<div id="48" class="square" data-square="4-h"></div>
+		</div>
+		<div class="even">
+			<div id="31" class="square" data-square="3-a"></div>
+			<div id="32" class="square" data-square="3-b"></div>
+			<div id="33" class="square" data-square="3-c"></div>
+			<div id="34" class="square" data-square="3-d"></div>
+			<div id="35" class="square" data-square="3-e"></div>
+			<div id="36" class="square" data-square="3-f"></div>
+			<div id="37" class="square" data-square="3-g"></div>
+			<div id="38" class="square" data-square="3-h"></div>
+		</div>
+		<div class="odd">
+			<div class="square white" id="21" data-square="2-a">
+				<img class="piece pawn" id="whitePawn1" src="img/whitePawn.png">
+			</div>
+			<div class="square white" id="22" data-square="2-b">
+				<img class="piece onetwo" id="whiteOnetwo" src="img/whiteOnetwo.png">
+			</div>
+			<div class="square white" id="23" data-square="2-c">
+				<img class="piece pawn" id="whitePawn3" src="img/whitePawn.png">
+			</div>
+			<div class="square white" id="24" data-square="2-d">
+				<img class="piece pawn" id="whitePawn4" src="img/whitePawn.png">
+			</div>
+			<div class="square white" id="25" class="square" data-square="2-e">
+				<img class="piece supe" id="whiteSupe" src="img/whiteSupe.png">
+			</div>
+			<div class="square white" id="26" data-square="2-f">
+				<img class="piece pawn" id="whitePawn6" src="img/whitePawn.png">
+			</div>
+			<div class="square white" id="27" data-square="2-g">
+				<img class="piece pawn" id="whitePawn7" src="img/whitePawn.png">
+			</div>
+			<div class="square white" id="28" data-square="2-h">
+				<img class="piece pawn" id="whitePawn8" src="img/whitePawn.png">
+			</div>
+		</div>
+		<div class="even">
+			<div id="11" class="square white" data-square="1-a">
+				<img class="piece rook" id="whiteRook1" src="img/whiteRook.png">
+			</div>
+			<div id="12" class="square white" data-square="1-b">
+				<img class="piece knight" id="whiteKnight1" src="img/whiteKnight.png">
+			</div>
+			<div id="13" class="square white" data-square="1-c">
+				<img class="piece gob" id="whiteGob" data-color="white" src="img/whiteGob.png">
+			</div>
+			<div id="14" class="square white" data-square="1-d">
+				<img class="piece queen" id="whiteQueen" src="img/whiteQueen.png">
+			</div>
+			<div id="15" class="square white" data-square="1-e">
+				<img class="piece wking" src="img/whiteKing.png" class="white" id="whiteKing">
+			</div>
+			<div id="16" class="square white" data-square="1-f">
+				<img class="piece knight" id="whiteBishop2" src="img/whiteBishop.png">
+			</div>
+			<div id="17" class="square white" data-square="1-g">
+				<img class="piece knight" id="whiteKnight2" src="img/whiteKnight.png">
+			</div>
+			<div id="18" class="square white" data-square="1-h">
+				<img class="piece gobl" id="whiteGobl" src="img/whiteGobl.png">
+			</div>
+		</div>
+	</div>
+
+	<div id="sematary">
+		<div id="whiteSematary">
+			<div class="pawn"></div>
+			<div class="knight"></div>
+			<div class="bishop"></div>
+			<div class="rook"></div>
+			<div id="wdeadqueen" class="queen"></div>
+			<div class="onetwo"></div>
+			<div class="supe"></div>
+			<div class="superpawn"></div>
+			<div id="wdeadgobl" class="gobl"></div>
+			<div id="wdeadgob" class="gob"></div>
+		</div>
+		<div id="blackSematary">
+			<div class="pawn"></div>
+			<div class="knight"></div>
+			<div class="bishop"></div>
+			<div class="rook"></div>
+			<div id="bdeadqueen" class="queen"></div>
+			<div class="onetwo"></div>
+			<div class="supe"></div>
+			<div class="superpawn"></div>
+			<div id="bdeadgobl" class="gobl"></div>
+			<div id="bdeadgob" class="gob"></div>
+		</div>
+	</div>
+</div>
+
+<p id="turnnr">Turn Nr 0</p>
+
+<p id="turn">White's Turn</p>
+<div style="position:absolute;left:20px;bottom:20px;">
+	<button class="flip-board" onclick="boardAnimate()">Flip Board</button>
+	<button class="Characters" onclick="openCharacters()">Characters</button>
+	<!--
+	<button onclick="skipwhite()">skip turn white</button>
+	<button onclick="skipblack()">skip turn black</button>
+	<button onclick="game.changeTurn()">change turn</button>
+	<button onclick="checkdead()">check dead</button>
+	<button onclick="whiteinvis()">white invis</button>
+	<button onclick="whitereturn()">white get back</button>
+	<button onclick="blackinvis()">black invis</button>
+	<button onclick="blackreturn()">black get back</button>
+	-->
+</div>
+
+<script type="text/javascript" src="pieces/Piece.js"></script>
+<script type="text/javascript" src="pieces/King.js"></script>
+<script type="text/javascript" src="pieces/Queen.js"></script>
+<script type="text/javascript" src="pieces/Rook.js"></script>
+<script type="text/javascript" src="pieces/Bishop.js"></script>
+<script type="text/javascript" src="pieces/Knight.js"></script>
+<script type="text/javascript" src="pieces/Onetwo.js"></script>
+<script type="text/javascript" src="pieces/Supe.js"></script>
+<script type="text/javascript" src="pieces/SuperPawn.js"></script>
+<script type="text/javascript" src="pieces/Gobl.js"></script>
+<script type="text/javascript" src="pieces/Gob.js"></script>
+<script type="text/javascript" src="pieces/Pawn.js"></script>
+<script type="text/javascript" src="chess2script.js"></script>
+
+
+<script type="text/javascript">
+	function boardAnimate(){
+		const board = document.getElementById('board');
+		const elements = board.getElementsByClassName('piece');
+		if (board.classList.contains('animate')) {
+			board.classList.remove('animate');
+			board.classList.add('animate-backward');
+			for (element of elements) {
+				element.classList.remove('forward');
+				element.classList.add('backward');
+			}
+		}
+		else{
+			board.classList.remove('animate-backward');
+			board.classList.add('animate');
+			for (element of elements) {
+				element.classList.remove('backward');
+				element.classList.add('forward');
+			}
+		}	
+	}
+</script>
+
+</body>
+</html>
+
+<!-- JAVASCRIPT -->
+<script>
+class Game {
+	constructor(pieces) {		
+		this.board   = document.getElementById('board');
+		this.squares = this.board.querySelectorAll('.square');
+		this.pieces  = pieces;
+		this.turn    = 'white';
+		this.turnSign = document.getElementById('turn');
+		this.clickedPiece = null;
+		this.allowedMoves = null;
+		this.addEventListeners();
+		this.whiteSematary = document.getElementById('whiteSematary');
+		this.blackSematary = document.getElementById('blackSematary');
+	}
+
+	addEventListeners() {
+		this.pieces.forEach( piece => {
+			piece.img.addEventListener("click", this.pieceMove.bind(this)); 
+			piece.img.addEventListener("dragstart", this.pieceMove.bind(this)); 
+			piece.img.addEventListener("drop", this.pieceMove.bind(this));
+		});
+		this.squares.forEach( square => {
+			square.addEventListener("click", this.movePiece.bind(this)); 
+			square.addEventListener("dragover", function(event){
+				event.preventDefault();
+			}); 
+			square.addEventListener("drop", this.movePiece.bind(this)); 
+		});
+	}
+
+	pieceMove(event) {
+		const name = event.target.getAttribute('id');
+		const allowedMoves = this.getPieceAllowedMoves(event, name);
+		if (allowedMoves) {
+			const position = this.getPieceByName(name).position;
+			const clickedSquare = document.getElementById(position);
+
+			/*if (event.type == 'click' && this.clickedPiece && this.clickedPiece.name == name) {
+				this.setClickedPiece(null);
+				return this.clearSquares();
+			}*/
+			clickedSquare.classList.add('clicked-square');
+
+			allowedMoves.forEach( allowedMove => {
+				if (document.body.contains(document.getElementById(allowedMove))) {
+					document.getElementById(allowedMove).classList.add('allowed');		
+				}	
+			});
+		}
+		else{
+			this.clearSquares();
+		}
+	}
+
+	changeTurn() {
+		console.log("turn changed");
+		if (this.turn == 'white') {
+			this.turn = 'black';
+			this.turnSign.innerHTML = "Black's Turn";
+			turnnr ++
+			wturnnr ++
+			wmandarins ++
+			wfingers ++
+			if(bnoult === true){bnoult = false
+					wfingers = 0
+				console.log("black no-ult reset")}
+			wguns ++
+
+			if(whiteinviss === true){
+				whitereturn()
+			}
+			if(blackinviss === true){
+				blackreturn()
+			}
+			//whiteinviss = false
+			//blackinviss = false
+			updatetext()
+		}
+		else{
+			this.turn = 'white';
+			this.turnSign.innerHTML = "White's Turn";
+			turnnr ++
+			bturnnr ++
+			bmandarins ++
+			bfingers ++
+			if(wnoult === true){wnoult = false
+					bfingers = 0
+				console.log("white no-ult reset")}
+			bguns ++
+
+		if(whiteinviss === true){
+			whitereturn()
+		}
+		if(blackinviss === true){
+		blackreturn()
+	}
+			//whiteinviss = false
+			//blackinviss = false
+			updatetext()
+		}
+	}
+
+	getPiecesByColor(color) {
+		return this.pieces.filter(obj => {
+		  return obj.color === color
+		});
+	}
+
+	getPlayerPositions(color){
+		const pieces = this.getPiecesByColor(color);
+		return pieces.map( a => parseInt(a.position));
+	}
+
+	filterPositions(positions) {
+		return positions.filter(pos => {
+			return pos > 10 && pos < 89
+		});
+	};
+
+	unblockedPositions(allowedPositions=[], position, color, checking=true){
+		position = parseInt(position);
+		const unblockedPositions = [];
+
+		if (color == 'white') {
+			var myBlockedPositions    = this.getPlayerPositions('white');
+			var otherBlockedPositions = this.getPlayerPositions('black');
+		}
+		else{
+			var myBlockedPositions    = this.getPlayerPositions('black');
+			var otherBlockedPositions = this.getPlayerPositions('white');
+		}
+		
+		if (this.clickedPiece.hasRank('pawn') || this.clickedPiece.hasRank('supe')) {
+			for (const move of allowedPositions[0]) { //attacking moves
+				if (checking && this.myKingChecked(move)) continue;
+				if (otherBlockedPositions.indexOf(move) != -1) unblockedPositions.push(move);
+			}
+			const blockedPositions = myBlockedPositions + otherBlockedPositions;
+			for (const move of allowedPositions[1]) { //moving moves
+				if (blockedPositions.indexOf(move) != -1) break;
+				else if (checking && this.myKingChecked(move, false)) continue;
+				unblockedPositions.push(move);
+			}
+		}
+		else{
+			allowedPositions.forEach( allowedPositionsGroup => {
+				for (const move of allowedPositionsGroup) {
+					if (myBlockedPositions.indexOf(move) != -1) {
+						break;
+					}
+					else if ( checking && this.myKingChecked(move) ) {
+						continue;
+					}
+					unblockedPositions.push(move);
+					if (otherBlockedPositions.indexOf(move) != -1) break;
+				}
+			});
+		}
+			
+		return this.filterPositions(unblockedPositions);
+	}
+
+	getPieceAllowedMoves(event, pieceName){
+		const piece = this.getPieceByName(pieceName);
+		if(this.turn == piece.color){
+			this.clearSquares();
+			this.setClickedPiece(piece);
+			if (event.type == 'dragstart') {
+				event.dataTransfer.setData("text", event.target.id);
+			}
+
+			let pieceAllowedMoves = piece.getAllowedMoves();
+			if (piece.rank == 'king') {
+				pieceAllowedMoves = this.getCastlingSquares(pieceAllowedMoves);
+			}
+
+			const allowedMoves = this.unblockedPositions( pieceAllowedMoves, piece.position, piece.color, true );
+			this.allowedMoves = allowedMoves;
+			return allowedMoves;
+		}
+		else if (this.clickedPiece && this.turn == this.clickedPiece.color && this.allowedMoves && this.allowedMoves.indexOf(piece.position) != -1) {
+			this.kill(piece);
+		}
+		else{
+			return 0;
+		}
+	}
+
+	getCastlingSquares(allowedMoves) {
+		if ( !this.clickedPiece.ableToCastle || this.king_checked(this.turn) ) return allowedMoves;
+		const rook1 = this.getPieceByName(this.turn+'Rook1');
+		const rook2 = this.getPieceByName(this.turn+'Rook2');
+		if (rook1 && rook1.ableToCastle) {
+			const castlingPosition = rook1.position + 2
+            if(
+                !this.positionHasExistingPiece(castlingPosition - 1) &&
+                !this.positionHasExistingPiece(castlingPosition) && !this.myKingChecked(castlingPosition, true) &&
+                !this.positionHasExistingPiece(castlingPosition + 1) && !this.myKingChecked(castlingPosition + 1, true)
+            )
+			allowedMoves[1].push(castlingPosition);
+		}
+		if (rook2 && rook2.ableToCastle) {
+			const castlingPosition = rook2.position - 1;
+			if(
+                !this.positionHasExistingPiece(castlingPosition - 1) && !this.myKingChecked(castlingPosition - 1, true) &&
+                !this.positionHasExistingPiece(castlingPosition) && !this.myKingChecked(castlingPosition, true)
+            )
+			allowedMoves[0].push(castlingPosition);
+		}
+		return allowedMoves;
+	}
+
+	getPieceByName(piecename) {
+		return this.pieces.filter( obj => obj.name === piecename )[0];
+	}
+
+	getPieceByPos(piecePosition) {
+		return this.pieces.filter(obj =>  obj.position === piecePosition )[0];
+	}
+
+	positionHasExistingPiece(position) {
+		return this.getPieceByPos(position) != undefined;
+	}
+
+	setClickedPiece(piece) {
+		this.clickedPiece = piece;
+	}
+
+	movePiece(event, square='') {
+		square = square || event.target;
+		if (square.classList.contains('allowed')) {
+			const clickedPiece = this.clickedPiece;
+			if (clickedPiece) {
+				const newPosition = square.getAttribute('id');
+				if (clickedPiece.hasRank('king') || clickedPiece.hasRank('pawn') || clickedPiece.hasRank('supe'))
+					clickedPiece.changePosition(newPosition, true);
+				else
+					clickedPiece.changePosition(newPosition);
+				square.append(clickedPiece.img);
+				this.clearSquares();
+				this.changeTurn();
+				if (this.king_checked(this.turn)) {
+					if (this.king_dead(this.turn)) {
+						this.checkmate(clickedPiece.color);
+					}
+					else{
+						// alert('check');
+					}
+				}
+			}
+			else{
+				return 0;
+			}
+		}
+		if (event) event.preventDefault();
+	}
+
+	kill(piece) {
+		piece.img.parentNode.removeChild(piece.img);
+		piece.img.className = '';
+
+		if (piece.color == 'white') this.whiteSematary.querySelector('.'+piece.rank).append(piece.img);
+		else this.blackSematary.querySelector('.'+piece.rank).append(piece.img);
+
+		const chosenSquare = document.getElementById(piece.position);
+		this.pieces.splice(this.pieces.indexOf(piece), 1);
+		this.movePiece('', chosenSquare);
+	}
+
+	castleRook(rookName) {
+		const rook = this.getPieceByName(rookName);
+		const newPosition = rookName.indexOf('Rook2') != -1 ? rook.position - 2 : rook.position + 3;
+
+		this.setClickedPiece(rook);
+		const chosenSquare = document.getElementById(newPosition);
+		chosenSquare.classList.add('allowed');
+
+		this.movePiece('', chosenSquare );
+		this.changeTurn();
+	}
+
+	promote(pawn) {
+		const queenName = pawn.name.replace('Pawn', 'Queen');
+		const image = pawn.img;
+		image.id = queenName;
+		image.src = image.src.replace('Pawn', 'Queen');
+		this.pieces.splice(this.pieces.indexOf(pawn), 1);
+		this.pieces.push( new Queen(pawn.position, queenName) );
+	}
+	
+	//Here code for change character aka promote code stuff, trigger in file from pawn, me thinks its called changeposition.
+	/*
+	promote(pawn) {
+		const knightName = pawn.name.replace('Pawn', 'Knight');
+		const image = pawn.img;
+		image.id = knightName;
+		image.src = image.src.replace('Pawn', 'Knight');
+		this.pieces.splice(this.pieces.indexOf(pawn), 1);
+		this.pieces.push( new Knight(pawn.position, knightName) );
+	}
+	*/
+
+	supepromote(supe) {
+		const superpawnName = supe.name.replace('Supe', 'SuperPawn');
+		const image = supe.img;
+		image.id = superpawnName;
+		image.src = image.src.replace('Supe', 'SuperPawn');
+		this.pieces.splice(this.pieces.indexOf(supe), 1);
+		this.pieces.push( new Superpawn(supe.position, superpawnName) );
+	}
+
+	myKingChecked(pos, kill=true){
+		const piece = this.clickedPiece;
+		const originalPosition = piece.position;
+		const otherPiece = this.getPieceByPos(pos);
+		const should_kill_other_piece = kill && otherPiece && otherPiece.rank != 'king';
+		piece.changePosition(pos);
+		if (should_kill_other_piece) this.pieces.splice(this.pieces.indexOf(otherPiece), 1);
+		if (this.king_checked(piece.color)) {
+			piece.changePosition(originalPosition);
+			if (should_kill_other_piece) this.pieces.push(otherPiece);
+			return 1;
+		}
+		else{
+			piece.changePosition(originalPosition);
+			if (should_kill_other_piece) this.pieces.push(otherPiece);
+			return 0;
+		}
+	}
+
+	king_dead(color) {
+		const pieces = this.getPiecesByColor(color);
+		for (const piece of pieces) {
+			this.setClickedPiece(piece);
+			const allowedMoves = this.unblockedPositions( piece.getAllowedMoves(), piece.position, piece.color, true );
+			if (allowedMoves.length) {
+				this.setClickedPiece(null);
+				return 0;
+			}
+		}
+		this.setClickedPiece(null);
+		return 1;
+	}
+
+	king_checked(color) {
+		const piece = this.clickedPiece;
+		const king = this.getPieceByName(color + 'King');
+		const enemyColor = (color == 'white') ? 'black' : 'white';
+		const enemyPieces = this.getPiecesByColor(enemyColor);
+		for (const enemyPiece of enemyPieces) {
+			this.setClickedPiece(enemyPiece);
+			const allowedMoves = this.unblockedPositions( enemyPiece.getAllowedMoves(), enemyPiece.position, enemyColor, false );
+			if (allowedMoves.indexOf(king.position) != -1) {
+				this.setClickedPiece(piece);
+				return 1;
+			}
+		}
+		this.setClickedPiece(piece);
+		return 0;
+	}
+
+	clearSquares(){
+		this.allowedMoves = null;
+		const allowedSquares = this.board.querySelectorAll('.allowed');
+		allowedSquares.forEach( allowedSquare => allowedSquare.classList.remove('allowed') );
+		const cllickedSquare = document.getElementsByClassName('clicked-square')[0];
+		if (cllickedSquare) cllickedSquare.classList.remove('clicked-square');
+	}
+
+	checkmate(color){
+		const endScene = document.getElementById('endscene');
+		endScene.getElementsByClassName('winning-sign')[0].innerHTML = color + ' Wins';
+		endScene.classList.add('show');
+	}
+}
+
+
+const pieces = [
+	new Rook(11, 'whiteRook1'),
+	new Knight(12, 'whiteKnight1'),
+	new Gob(13, 'whiteGob'),
+	new Queen(14, 'whiteQueen'),
+	new King(15, 'whiteKing'),
+	new Bishop(16, 'whiteBishop2'),
+	new Knight(17, 'whiteKnight2'),
+	new Gobl(18, 'whiteGobl'),
+	new Pawn(21, 'whitePawn1'),
+	new Onetwo(22, 'whiteOnetwo'),
+	new Pawn(23, 'whitePawn3'),
+	new Pawn(24, 'whitePawn4'),
+	new Supe(25, 'whiteSupe'),
+	new Pawn(26, 'whitePawn6'),
+	new Pawn(27, 'whitePawn7'),
+	new Pawn(28, 'whitePawn8'),
+
+	new Pawn(71, 'blackPawn1'),
+	new Pawn(72, 'blackPawn2'),
+	new Pawn(73, 'blackPawn3'),
+	new Pawn(74, 'blackPawn4'),
+	new Supe(75, 'blackSupe'),
+	new Pawn(76, 'blackPawn6'),
+	new Onetwo(77, 'blackOnetwo'),
+	new Pawn(78, 'blackPawn7'),
+	new Gobl(81, 'blackGobl'),
+	new Knight(82, 'blackKnight1'),
+	new Bishop(83, 'blackBishop1'),
+	new Queen(84, 'blackQueen'),
+	new King(85, 'blackKing'),
+	new Gob(86, 'blackGob'),
+	new Knight(87, 'blackKnight2'),
+	new Rook(88, 'blackRook2')
+];
+
+const game = new Game(pieces);
+
+var turnnr = 0
+
+var wturnnr = 0
+var bturnnr = 0
+
+var wmandarins = 0
+var bmandarins = 0
+
+var wfingers = 0
+var bfingers = 0
+
+wguns = 0
+bguns = 0
+
+wnoult = false
+bnoult = false
+
+wmarault = true
+bmarault = true
+
+wgoblult = true
+bgoblult = true
+
+wgobult = true
+bgobult = true
+
+whiteinviss = false
+blackinviss = false
+
+
+  function skipwhite(){
+	if (game.turn == "white"){
+	console.log("bout to change white");
+	game.changeTurn()
+	wturnnr --
+	}
+  }
+
+  function skipblack(){
+	if (game.turn == "black"){
+	console.log("bout to change black");
+	game.changeTurn()
+	bturnnr --
+	}
+  }
+
+  function updatetext(){
+	document.getElementById("turnnr").innerHTML = "Turn Nr " + turnnr;
+	document.getElementById("wmandarins").innerHTML = ": " + wmandarins;
+	document.getElementById("bmandarins").innerHTML = ": " + bmandarins;
+	document.getElementById("wfingers").innerHTML = ": " + wfingers;
+	document.getElementById("bfingers").innerHTML = ": " + bfingers;
+	document.getElementById("wguns").innerHTML = ": " + wguns;
+	document.getElementById("bguns").innerHTML = ": " + bguns;
+	checkqueendeadwhite()
+	checkqueendeadblack()
+	checkgobldeadblack()
+	checkgobldeadwhite()
+	checkgobdeadblack()
+	checkgobdeadwhite()
+	if(wfingers >= 13 && wgoblult === true){
+		document.getElementById("wfingers").innerHTML = ": 12";
+		document.getElementById("wnoult").innerHTML = "<img src='img/button.png' onclick='goblultwhite()' width= '80px'></img>"
+	}
+	else if(wfingers >= 13){
+		document.getElementById("wfingers").innerHTML = ": 12";
+		document.getElementById("wnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultwhite()' width= '80px'></img>"
+	}
+	if(bfingers >= 13 && bgoblult === true){
+		document.getElementById("bfingers").innerHTML = ": 12";
+		document.getElementById("bnoult").innerHTML = "<img src='img/button.png' onclick='goblultblack()' width= '80px'></img>"
+	}
+	else if(bfingers >= 13){
+		document.getElementById("bfingers").innerHTML = ": 12";
+		document.getElementById("bnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultblack()' width= '80px'></img>"
+	}
+	if(wmandarins >= 10 && wmarault === true){
+		document.getElementById("wmandarins").innerHTML = ": 10";
+		document.getElementById("wskipbutton").innerHTML = "<img src='img/button.png' onclick='maraultwhite()' width= '80px'></img>"
+	} 
+	else if(wmandarins >= 10){
+		document.getElementById("wmandarins").innerHTML = ": 10";
+		document.getElementById("wskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultwhite()' width= '80px'></img>"
+	}
+	if(bmandarins >= 10 && bmarault === true){
+		document.getElementById("bmandarins").innerHTML = ": 10";
+		document.getElementById("bskipbutton").innerHTML = "<img src='img/button.png' onclick='maraultblack()' width= '80px'></img>"
+	}
+	else if(bmandarins >= 10){
+		document.getElementById("bmandarins").innerHTML = ": 10";
+		document.getElementById("bskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultblack()' width= '80px'></img>"
+	}
+	if(wguns >= 8 && wgobult === true){
+		document.getElementById("wguns").innerHTML = ": 7";
+		document.getElementById("wblind").innerHTML = "<img src='img/button.png' onclick='gobultwhite()' width= '80px'></img>"
+	}
+	else if(wguns >= 8){
+		document.getElementById("wguns").innerHTML = ": 7";
+		document.getElementById("wblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gobultwhite()' width= '80px'></img>"
+	}
+	if(bguns >= 8 && bgobult === true){
+		document.getElementById("bguns").innerHTML = ": 7";
+		document.getElementById("bblind").innerHTML = "<img src='img/button.png' onclick='gobultblack()' width= '80px'></img>"
+	}
+	else if(bguns >= 8){
+		document.getElementById("bguns").innerHTML = ": 7";
+		document.getElementById("bblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gobultblack()' width= '80px'></img>"
+	}
+	document.getElementById("wturnnr").innerHTML = "White Turns: " + wturnnr;
+	document.getElementById("bturnnr").innerHTML = "Black Turns: " + bturnnr;
+	if(turnnr === 20){
+		console.log("SuperPawns activated")
+		alert("Crackheads are activated; Now to find the Imposter Pawn.")
+	}
+
+
+	/*if(turnnr >= 20){
+		game.promoteSupes(supe)
+		console.log("Supes activated")
+		alert("SuperPawns activated")
+	}*/
+
+	console.log("text updated")
+  }
+
+
+  function goblultwhite(){
+	if(wfingers >= 12 && wnoult === false && game.turn == "black" && wgoblult === true){
+	bnoult = true
+	console.log("black no-ult active")
+		document.getElementById("wnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultwhite()' width= '80px'></img>"
+		wfingers = 0
+		//wfingers --
+		updatetext()
+	} else if(wgoblult === false){
+		console.log("your gobl is dead")
+		alert("Your Gandalf of Blasphemy is dead")
+	} else if(game.turn == "white" && wnoult === true){
+		console.log("your ult is blocked")
+		alert("Your ult is blocked")
+	} else if(game.turn == "white"){
+		console.log("use your ult when enemy is playing")
+		alert("Use your ult when enemy is playing")
+	}else{
+		console.log("ult not ready")
+		alert("Ult not ready")
+	}
+  }
+
+  function goblultblack(){
+	if(bfingers >= 12 && bnoult === false && game.turn == "white" && bgoblult === true){
+	wnoult = true
+	console.log("white no-ult active")
+		document.getElementById("bnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultblack()' width= '80px'></img>"
+		bfingers = 0
+		//bfingers --
+		updatetext()
+	} else if(bgoblult === false){
+		console.log("your gobl is dead")
+		alert("Your Gandalf of Blasphemy is dead")
+	} else if(game.turn == "black" && bnoult === true){
+		console.log("your ult is blocked")
+		alert("Your ult is blocked")
+	} else if(game.turn == "black"){
+		console.log("use your ult when enemy is playing")
+		alert("Use your ult when enemy is playing")
+	}else{
+		console.log("ult not ready")
+		alert("Ult not ready")
+	}
+  }
+
+  function maraultwhite(){
+	if(wmandarins >= 10 && game.turn == "white" && wnoult === false && wmarault === true){
+		console.log("yes ult.")
+		document.getElementById("wskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultwhite()' width= '80px'></img>"
+		wmandarins = 0
+		skipwhite()
+		wmandarins --
+		updatetext()
+	} else if(wmarault === false){
+		console.log("your queen is dead")
+		alert("Your Mara is dead")
+	} else if(game.turn == "black"){
+		console.log("not your turn")
+		alert("Not your turn")
+	} else if(game.turn == "white" && wnoult === true){
+		console.log("your ult is blocked")
+		alert("Your ult is blocked")
+	} else {
+		console.log("ult not ready")
+		alert("Ult not ready")
+	}
+  }
+
+  function maraultblack(){
+	if(bmandarins >= 10 && game.turn == "black" && bnoult === false && bmarault === true){
+		console.log("yes ult.")
+		document.getElementById("bskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultblack()' width= '80px'></img>"
+		bmandarins = 0
+		skipblack()
+		bmandarins --
+		updatetext()
+	} else if(bmarault === false){
+		console.log("your queen is dead")
+		alert("Your Mara is dead")
+	} else if(game.turn == "white"){
+		console.log("not your turn")
+		alert("Not your turn")
+	} else if(game.turn == "black" && bnoult === true){
+		console.log("your ult is blocked")
+		alert("Your ult is blocked")
+	} else {
+		console.log("ult not ready")
+		alert("Ult not ready")
+	}
+  }
+
+
+  // Mara ult blocks
+  function checkqueendeadblack(){
+	const collection = document.getElementById("bdeadqueen").children;
+	//console.log(collection)
+let text = "";
+for (let i = 0; i < collection.length; i++) {
+  text += collection[i].tagName + "<br>";
+
+if(collection[i].id=="blackQueen"){console.log("black queen is dead")
+stopmaraultblack()}
+}
+//document.getElementById("demo").innerHTML = text;
+  }
+
+  function checkqueendeadwhite(){
+	const collection = document.getElementById("wdeadqueen").children;
+	//console.log(collection)
+let text = "";
+for (let i = 0; i < collection.length; i++) {
+  text += collection[i].tagName + "<br>";
+
+if(collection[i].id=="whiteQueen"){console.log("white queen is dead")
+stopmaraultwhite()}
+}
+//document.getElementById("demo").innerHTML = text;
+  }
+
+  function stopmaraultwhite(){
+	wmarault = false
+	console.log("white mara ult blocked")
+  }
+
+  function stopmaraultblack(){
+	bmarault = false
+	console.log("black mara ult blocked")
+  }
+
+
+  // Gobl Ults block
+  function checkgobldeadblack(){
+	const collection = document.getElementById("bdeadgobl").children;
+	//console.log(collection)
+let text = "";
+for (let i = 0; i < collection.length; i++) {
+  text += collection[i].tagName + "<br>";
+
+if(collection[i].id=="blackGobl"){console.log("black gobl is dead")
+stopgoblultblack()}
+}
+//document.getElementById("demo").innerHTML = text;
+  }
+
+  function checkgobldeadwhite(){
+	const collection = document.getElementById("wdeadgobl").children;
+	//console.log(collection)
+let text = "";
+for (let i = 0; i < collection.length; i++) {
+  text += collection[i].tagName + "<br>";
+
+if(collection[i].id=="whiteGobl"){console.log("white gobl is dead")
+stopgoblultwhite()}
+}
+//document.getElementById("demo").innerHTML = text;
+  }
+
+  function stopgoblultwhite(){
+	wgoblult = false
+	console.log("white gobl ult blocked")
+  }
+
+  function stopgoblultblack(){
+	bgoblult = false
+	console.log("black gobl ult blocked")
+  }
+
+
+   // Gob Ult block etc
+   function checkgobdeadblack(){
+	const collection = document.getElementById("bdeadgob").children;
+	//console.log(collection)
+let text = "";
+for (let i = 0; i < collection.length; i++) {
+  text += collection[i].tagName + "<br>";
+
+if(collection[i].id=="blackGob"){console.log("black gob is dead")
+stopgobultblack()}
+}
+//document.getElementById("demo").innerHTML = text;
+  }
+
+  function checkgobdeadwhite(){
+	const collection = document.getElementById("wdeadgob").children;
+	//console.log(collection)
+let text = "";
+for (let i = 0; i < collection.length; i++) {
+  text += collection[i].tagName + "<br>";
+
+if(collection[i].id=="whiteGob"){console.log("white gob is dead")
+stopgobultwhite()}
+}
+//document.getElementById("demo").innerHTML = text;
+  }
+
+  function stopgobultwhite(){
+	wgobult = false
+	console.log("white gob ult blocked")
+  }
+
+  function stopgobultblack(){
+	bgobult = false
+	console.log("black gob ult blocked")
+  }
+
+  function gobultwhite(){
+	if(wguns >= 7 && game.turn == "black" && wnoult === false && wgobult === true){
+		console.log("yes ult.")
+		document.getElementById("wblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gubultwhite()' width= '80px'></img>"
+		wguns = 0
+		whiteinvis()
+		//wguns --
+		updatetext()
+	} else if(wgobult === false){
+		console.log("your gob is dead")
+		alert("Your Gandalf of Blindness is dead")
+	} else if(game.turn == "white"){
+		console.log("use your ult when enemy is playing")
+		alert("use your ult when enemy is playing")
+	} else if(game.turn == "black" && wnoult === true){
+		console.log("your ult is blocked")
+		alert("Your ult is blocked")
+	} else {
+		console.log("ult not ready")
+		alert("Ult not ready")
+	}
+  }
+
+  function gobultblack(){
+	if(bguns >= 7 && game.turn == "white" && bnoult === false && bgobult === true){
+		console.log("yes ult.")
+		document.getElementById("bblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gubultblack()' width= '80px'></img>"
+		bguns = 0
+		blackinvis()
+		//bguns --
+		updatetext()
+	} else if(bgobult === false){
+		console.log("your gob is dead")
+		alert("Your Gandalf of Blindness is dead")
+	} else if(game.turn == "black"){
+		console.log("use your ult when enemy is playing")
+		alert("use your ult when enemy is playing")
+	} else if(game.turn == "white" && bnoult === true){
+		console.log("your ult is blocked")
+		alert("Your ult is blocked")
+	} else {
+		console.log("ult not ready")
+		alert("Ult not ready")
+	}
+  } 
+  
+ 
+  // Gob ult and recet
+  function whiteinvis(){
+const col1 = document.getElementById("whiteGobl")
+col1.src = col1.src.replace('white', 'winvis');
+
+const col2 = document.getElementById("whiteKnight1")
+col2.src = col2.src.replace('white', 'winvis');
+
+const col3 = document.getElementById("whiteKnight2")
+col3.src = col3.src.replace('white', 'winvis');
+
+const col4 = document.getElementById("whiteKing")
+col4.src = col4.src.replace('white', 'winvis');
+
+const col5 = document.getElementById("whiteBishop2")
+col5.src = col5.src.replace('white', 'winvis');
+
+const col6 = document.getElementById("whiteQueen")
+col6.src = col6.src.replace('white', 'winvis');
+
+const col7 = document.getElementById("whiteGob")
+col7.src = col7.src.replace('white', 'winvis');
+
+const col8 = document.getElementById("whiteRook1")
+col8.src = col8.src.replace('white', 'winvis');
+
+const ggggsgsg = document.getElementById("whitePawn1")
+ggggsgsg.src = ggggsgsg.src.replace('white', 'winvis');
+
+const wwewewwewe = document.getElementById("whitePawn3")
+wwewewwewe.src = wwewewwewe.src.replace('white', 'winvis');
+
+const fagagg = document.getElementById("whitePawn4")
+fagagg.src = fagagg.src.replace('white', 'winvis');
+
+const screaew = document.getElementById("whiteSupe")
+screaew.src = screaew.src.replace('white', 'winvis');
+
+const cllection = document.getElementById("whitePawn6")
+cllection.src = cllection.src.replace('white', 'winvis');
+
+const collection = document.getElementById("whitePawn7")
+collection.src = collection.src.replace('white', 'winvis');
+
+const ersttt = document.getElementById("whitePawn8")
+ersttt.src = ersttt.src.replace('white', 'winvis');
+
+const eswrff = document.getElementById("whiteOnetwo")
+eswrff.src = eswrff.src.replace('white', 'winvis');
+/*
+//const coleee = document.getElementsByClassName("pawn")
+//coleee.src = coleee.src.replace('white', 'winvis');
+*/
+console.log("whiteinvis = true")
+whiteinviss = true
+  }
+
+  function blackinvis(){
+	const col1 = document.getElementById("blackGobl")
+	col1.src = col1.src.replace('black', 'binvis');
+	
+	const col2 = document.getElementById("blackKnight1")
+	col2.src = col2.src.replace('black', 'binvis');
+	
+	const col3 = document.getElementById("blackKnight2")
+	col3.src = col3.src.replace('black', 'binvis');
+	
+	const col4 = document.getElementById("blackKing")
+	col4.src = col4.src.replace('black', 'binvis');
+	
+	const col5 = document.getElementById("blackBishop1")
+	col5.src = col5.src.replace('black', 'binvis');
+	
+	const col6 = document.getElementById("blackQueen")
+	col6.src = col6.src.replace('black', 'binvis');
+	
+	const col7 = document.getElementById("blackGob")
+	col7.src = col7.src.replace('black', 'binvis');
+	
+	const col8 = document.getElementById("blackRook2")
+	col8.src = col8.src.replace('black', 'binvis');
+	
+	const ggggsgsg = document.getElementById("blackPawn1")
+	ggggsgsg.src = ggggsgsg.src.replace('black', 'binvis');
+	
+	const wwewewwewe = document.getElementById("blackPawn3")
+	wwewewwewe.src = wwewewwewe.src.replace('black', 'binvis');
+	
+	const fagagg = document.getElementById("blackPawn4")
+	fagagg.src = fagagg.src.replace('black', 'binvis');
+	
+	const screaew = document.getElementById("blackSupe")
+	screaew.src = screaew.src.replace('black', 'binvis');
+	
+	const cllection = document.getElementById("blackPawn6")
+	cllection.src = cllection.src.replace('black', 'binvis');
+	
+	const collection = document.getElementById("blackPawn7")
+	collection.src = collection.src.replace('black', 'binvis');
+	
+	const ersttt = document.getElementById("blackPawn2")
+	ersttt.src = ersttt.src.replace('black', 'binvis');
+	
+	const eswrff = document.getElementById("blackOnetwo")
+	eswrff.src = eswrff.src.replace('black', 'binvis');
+
+	console.log("blackinvis = true")
+	blackinviss = true
+	}
+
+  function whitereturn(){
+	const col1 = document.getElementById("whiteGobl")
+col1.src = col1.src.replace('winvis', 'white');
+
+const col2 = document.getElementById("whiteKnight1")
+col2.src = col2.src.replace('winvis', 'white');
+
+const col3 = document.getElementById("whiteKnight2")
+col3.src = col3.src.replace('winvis', 'white');
+
+const col4 = document.getElementById("whiteKing")
+col4.src = col4.src.replace('winvis', 'white');
+
+const col5 = document.getElementById("whiteBishop2")
+col5.src = col5.src.replace('winvis', 'white');
+
+const col6 = document.getElementById("whiteQueen")
+col6.src = col6.src.replace('winvis', 'white');
+
+const col7 = document.getElementById("whiteGob")
+col7.src = col7.src.replace('winvis', 'white');
+
+const col8 = document.getElementById("whiteRook1")
+col8.src = col8.src.replace('winvis', 'white');
+
+const ggggsgsg = document.getElementById("whitePawn1")
+ggggsgsg.src = ggggsgsg.src.replace('winvis', 'white');
+
+const wwewewwewe = document.getElementById("whitePawn3")
+wwewewwewe.src = wwewewwewe.src.replace('winvis', 'white');
+
+const fagagg = document.getElementById("whitePawn4")
+fagagg.src = fagagg.src.replace('winvis', 'white');
+
+const screaew = document.getElementById("whiteSupe")
+screaew.src = screaew.src.replace('winvis', 'white');
+
+const cllection = document.getElementById("whitePawn6")
+cllection.src = cllection.src.replace('winvis', 'white');
+
+const collection = document.getElementById("whitePawn7")
+collection.src = collection.src.replace('winvis', 'white');
+
+const ersttt = document.getElementById("whitePawn8")
+ersttt.src = ersttt.src.replace('winvis', 'white');
+
+const eswrff = document.getElementById("whiteOnetwo")
+eswrff.src = eswrff.src.replace('winvis', 'white');
+
+whiteinviss = false
+  }
+
+  function blackreturn(){
+	const col1 = document.getElementById("blackGobl")
+col1.src = col1.src.replace('binvis', 'black');
+
+const col2 = document.getElementById("blackKnight1")
+col2.src = col2.src.replace('binvis', 'black');
+
+const col3 = document.getElementById("blackKnight2")
+col3.src = col3.src.replace('binvis', 'black');
+
+const col4 = document.getElementById("blackKing")
+col4.src = col4.src.replace('binvis', 'black');
+
+const col5 = document.getElementById("blackBishop1")
+col5.src = col5.src.replace('binvis', 'black');
+
+const col6 = document.getElementById("blackQueen")
+col6.src = col6.src.replace('binvis', 'black');
+
+const col7 = document.getElementById("blackGob")
+col7.src = col7.src.replace('binvis', 'black');
+
+const col8 = document.getElementById("blackRook2")
+col8.src = col8.src.replace('binvis', 'black');
+
+const ggggsgsg = document.getElementById("blackPawn1")
+ggggsgsg.src = ggggsgsg.src.replace('binvis', 'black');
+
+const wwewewwewe = document.getElementById("blackPawn3")
+wwewewwewe.src = wwewewwewe.src.replace('binvis', 'black');
+
+const fagagg = document.getElementById("blackPawn4")
+fagagg.src = fagagg.src.replace('binvis', 'black');
+
+const screaew = document.getElementById("blackSupe")
+screaew.src = screaew.src.replace('binvis', 'black');
+
+const cllection = document.getElementById("blackPawn6")
+cllection.src = cllection.src.replace('binvis', 'black');
+
+const collection = document.getElementById("blackPawn7")
+collection.src = collection.src.replace('binvis', 'black');
+
+const ersttt = document.getElementById("blackPawn2")
+ersttt.src = ersttt.src.replace('binvis', 'black');
+
+const eswrff = document.getElementById("blackOnetwo")
+eswrff.src = eswrff.src.replace('binvis', 'black');
+
+blackinviss = false
+  }
+
+  function openCharacters(){
+		window.open("Characters.html", "_blank");
+  }
+</script>
+
+<!-- CSS -->
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #7bbba4;
+}
+#board{
+	width: 600px;
+	height: 600px;
+	border:3px #333 solid;
+}
+#board div div{
+	float: left;
+	width: 75px;
+	height: 75px;
+	box-sizing:border-box;
+	border: #000 solid .01cm;
+}
+
+#board .even div:nth-child(even){
+	background: #ccd;
+}
+
+#board .even div:nth-child(odd){
+	background: rgb(112,112,112);/*621700*/
+}
+
+#board .odd div:nth-child(even){
+	background: rgb(112,112,112);/*621700*/
+}
+
+#board .odd div:nth-child(odd){
+	background: #ccd;
+}
+
+.animate{
+	animation: rotateBoard 1s ease-out;
+	animation-fill-mode: both;
+}
+@keyframes rotateBoard { 
+  0% {
+    transform: rotateZ(0);
+  }
+  100%{
+  	transform: rotateZ(-180deg);
+  }
+
+}
+.forward{
+	transform: rotateZ(-180deg);
+}
+.backward{
+	transform: rotateZ(0);
+}
+.animate-backward{
+	animation: rotateBoardBackward 1s ease-out;
+	animation-fill-mode: both;
+}
+@keyframes rotateBoardBackward { 
+  0% {
+    transform: rotateZ(-180deg);
+  }
+  100%{
+  	transform: rotateZ(0);
+  }
+
+}
+img{
+	width: 75px;
+	height: 75px; 
+}
+.allowed{
+	opacity: .8;
+	background: radial-gradient(#333,#222 )!important;
+	/*-webkit-box-shadow: inset 1px -4px 92px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 1px -4px 92px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 1px -4px 92px 0px rgba(0,0,0,0.75);*/
+	border:1px solid black !important;
+}
+.clicked-square{
+	background: radial-gradient(#333,#222 )!important;
+	border:1px solid black !important;
+}
+#sematary img{
+	transform: rotateZ(0);
+}
+#whiteSematary{
+	position: absolute;
+    top: 0;
+    left: 610px;
+    width: 180px;
+}
+#blackSematary{
+	position: absolute;
+    top: 0;
+    left: -190px;
+    width: 180px;
+}
+#blackSematary div{
+	overflow-y: auto;
+	margin-bottom: 2px;
+}
+#blackSematary img{
+	float: right;
+}
+#sematary img{
+	width: 60px;
+	height: 60px;
+}
+#endscene{
+	position: relative;
+	display: none;
+	opacity: 0;
+	z-index: 1;
+}
+.overlay{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5;
+}
+#endscene p{
+	position: fixed;
+	color:#fff;
+	z-index: 2;
+	width: 100%;
+    text-align: center;
+    margin-top: 40vh;
+    font-size: 40px;
+}
+.show{
+	display: block !important;
+	animation: showMessage 1s ease-out;
+	animation-fill-mode: both;
+}
+@keyframes showMessage { 
+  0% {
+  	opacity: 0;
+  }
+  100%{
+  	opacity: 1;
+  }
+
+}
+#turn{
+	text-align: center;
+	font-size: 26px;
+}
+
+#turnnr{
+	text-align: center;
+	font-size: 26px;
+}
+
+.winning-sign:first-letter{
+	text-transform: uppercase;
+}
+
+.flip-board{
+	padding: 10px 20px;
+    border-radius: 5px !important;
+    outline: 0;
+    background: rgb(19, 139, 175);
+    color: white;
+    border: 0;
+}
+
+#WhiteSummary{
+	float: right;
+	max-width: 650px;
+	font-size: 26px;
+}
+
+#BlackSummary{
+	float: left;
+	max-width: 650px;
+	font-size: 26px;
+}
+
+.Characters{
+	padding: 10px 20px;
+	border-radius: 5px !important;
+	outline: 0;
+	background: rgb(19, 139, 175);
+	color: white;
+	border: 0;
+}
+</style>
+
+<hr>
+<section id="comments">
+<h3 class="m-l-30">Comments</h3>
+<form method="post" class="m-l-30">
+<p>
+<textarea name="content"
+placeholder="Comment"
+cols="60"
+rows="5"></textarea>
+</p>
+<p>
+<button type="submit">Add comment</button>
+</p>
+</form>
+{% for comment in game.comments %}
+<div class="comment m-l-20 m-t-10 m-b-10 m-r-10">
+<p>#{{ comment.id }}</p>
+<p>by {{ comment.author }}</p>
+<p>{{ comment.content }}</p>
+</div></section>
+{% endfor %}
+{% endblock %}

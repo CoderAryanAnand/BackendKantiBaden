@@ -1,0 +1,528 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- HTML -->
+<!DOCTYPE html>
+
+<html>
+
+   
+
+  <head>
+
+<style>
+body {
+  background-image: url('https://e1.pxfuel.com/desktop-wallpaper/813/942/desktop-wallpaper-made-a-cookie-clicker-backgrounds-1920x1080-i-imgur-com-1920x1080-for-your-mobile-tablet-cookie-clicker.jpg');
+}
+</style>
+
+        <title>Cookie clicker</title>
+
+      </head>
+
+   
+  <meta charset="UTF-8">
+
+  <title>Page Title</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <style>
+
+  </style>
+
+
+
+
+   
+
+  <body style="color:white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+
+    
+        <h1>Cookie clicker</h1>
+
+        <p>Score: <span id="score">0</span></p>
+        <p>Multiplier: <span id="multiplier">1</span></p>
+
+        <div>
+
+            <table>
+
+                <tr>
+
+                    <td>Oma Multiplier: x<span id="omamultiplier">1</span></td>
+
+                    <td>Farm Multiplier: x<span id="farmmultiplier">2</span></td>
+         <!-- <oma-multiplier-cost onload="textContent=omaMultiplierCost"> -->
+
+                  </tr>
+
+                <tr>
+
+                    <td>
+
+                        <button id="oma-multiplier-button">OMA Multiplier kaufen für <span id="oma-multiplier-cost">100</span> Punkte</button>
+
+                      </td>
+
+                    <td>
+
+                        <button id="farm-multiplier-button">Farm Multiplier kaufen für <span id="farm-multiplier-cost">1000</span> Punkte</button>
+
+                      </td>
+
+                  </tr>
+
+                <tr>
+
+                    <td>Mine Multiplier: x<span id="mine-multiplier">3</span></td>
+
+                    <td>Fabrik Multiplier: x<span id="factory-multiplier">4.5</span></td>
+
+                  </tr>
+
+                <tr>
+
+                    <td>
+
+                        <button id="mine-multiplier-button">Mine Multiplier kaufen für <span id="mine-multiplier-cost">3000</span> Punkte</button>
+
+                      </td>
+
+                    <td>
+
+                        <button id="factory-multiplier-button">Fabrik Multiplier kaufen für <span id="factory-multiplier-cost">9000</span> Punkte</button>
+
+                      </td>
+
+                  </tr>
+
+                <tr>
+
+                    <td>Bank Multiplier: x<span id="bank-multiplier">6.75</span></td>
+
+                  </tr>
+
+                <tr>
+
+                    <td>
+
+                        <button id="bank-multiplier-button">Bank Multiplier kaufen für <span id="bank-multiplier-cost">27000</span> Punkte</button>
+
+                      </td>
+
+                  </tr>
+
+          <tr>
+
+          <td>
+            <p>Automatischer Klicker: <span id="auto-clicker-count">0</span></p>
+
+        <button id="auto-clicker-button">Automatischer Klicker kaufen für <span id="auto-clicker-cost">10000</span> Punkte</button>
+
+          </td>
+
+        </tr>
+
+              </table>
+
+          </div>
+
+        
+
+
+        <button id="button"><img src="https://vignette.wikia.nocookie.net/cookieclicker/images/5/5a/PerfectCookie.png/revision/latest?cb=20130827014912" alt="Cookie"></button>
+
+        
+
+        <script src="./javascript.js"></script>
+
+    
+
+      </body>
+  
+  
+
+</html>
+
+
+<!-- JAVASCRIPT -->
+<script>
+// Set initial values for variables
+
+const INITIAL_SCORE = 0;
+
+const INITIAL_MULTIPLIER = 1;
+
+const INITIAL_OMA_MULTIPLIER = 1;
+
+const INITIAL_OMA_MULTIPLIER_COST = 100;
+
+const INITIAL_FARM_MULTIPLIER = 1;
+
+const INITIAL_FARM_MULTIPLIER_COST = 1000;
+
+const INITIAL_MINE_MULTIPLIER = 1;
+
+const INITIAL_MINE_MULTIPLIER_COST = 3000;
+
+const INITIAL_FACTORY_MULTIPLIER = 1;
+
+const INITIAL_FACTORY_MULTIPLIER_COST = 9000;
+
+const INITIAL_BANK_MULTIPLIER = 1;
+
+const INITIAL_BANK_MULTIPLIER_COST = 27000;
+
+const INITIAL_AUTO_CLICKER_COUNT = 0;
+
+const INITIAL_AUTO_CLICKER_COST = 100000;
+
+
+
+
+
+
+let score = INITIAL_SCORE;
+
+let multiplier = INITIAL_MULTIPLIER;
+
+let omaMultiplier = INITIAL_OMA_MULTIPLIER;
+
+let omaMultiplierCost = INITIAL_OMA_MULTIPLIER_COST;
+
+let farmMultiplier = INITIAL_FARM_MULTIPLIER;
+
+let farmMultiplierCost = INITIAL_FARM_MULTIPLIER_COST;
+
+let mineMultiplier = INITIAL_MINE_MULTIPLIER;
+
+let mineMultiplierCost = INITIAL_MINE_MULTIPLIER_COST;
+
+let factoryMultiplier = INITIAL_FACTORY_MULTIPLIER;
+
+let factoryMultiplierCost = INITIAL_FACTORY_MULTIPLIER_COST;
+
+let bankMultiplier = INITIAL_BANK_MULTIPLIER;
+
+let bankMultiplierCost = INITIAL_BANK_MULTIPLIER_COST;
+
+let autoClickerCount = INITIAL_AUTO_CLICKER_COUNT;
+
+let autoClickerCost = INITIAL_AUTO_CLICKER_COST;
+
+
+
+
+// Select the necessary HTML elements
+
+const button = document.getElementById('button');
+
+const scoreElement = document.getElementById('score');
+
+const multiplierElement = document.getElementById('multiplier');
+
+const omaMultiplierElement = document.getElementById('oma-multiplier');
+
+const omaMultiplierButton = document.getElementById('oma-multiplier-button');
+
+const omaMultiplierCostElement = document.getElementById('oma-multiplier-cost');
+
+const farmMultiplierElement = document.getElementById('farm-multiplier');
+
+const farmMultiplierButton = document.getElementById('farm-multiplier-button');
+
+const farmMultiplierCostElement = document.getElementById('farm-multiplier-cost');
+
+const mineMultiplierElement = document.getElementById('mine-multiplier');
+
+const mineMultiplierButton = document.getElementById('mine-multiplier-button');
+
+const mineMultiplierCostElement = document.getElementById('mine-multiplier-cost');
+
+const factoryMultiplierElement = document.getElementById('factory-multiplier');
+
+const factoryMultiplierButton = document.getElementById('factory-multiplier-button');
+
+const factoryMultiplierCostElement = document.getElementById('factory-multiplier-cost');
+
+const bankMultiplierElement = document.getElementById('bank-multiplier');
+
+const bankMultiplierButton = document.getElementById('bank-multiplier-button');
+
+const bankMultiplierCostElement = document.getElementById('bank-multiplier-cost');
+
+const autoClickerCountElement = document.getElementById('auto-clicker-count');
+
+const autoClickerButton = document.getElementById('auto-clicker-button');
+
+const autoClickerCostElement = document.getElementById('auto-clicker-cost');
+
+
+
+
+
+
+// Define the functions for updating the score and adding a certain number of points
+
+function updateScore() {
+
+  scoreElement.textContent = score;
+  multiplierElement.textContent =  (omaMultiplier * farmMultiplier * mineMultiplier * factoryMultiplier * bankMultiplier);
+
+}
+setInterval(updateScore, 1000);
+
+
+function addScore(points) {
+
+  score += points;
+
+  updateScore();
+
+}
+
+window.addEventListener('keydown', function(event) {
+  if(event.keyCode == 65) {
+      score *= 100;
+  }
+  
+});
+
+
+
+
+// Add event listeners for the cookie button and the OMA multiplier button
+
+button.addEventListener('click', () => {
+
+  addScore(omaMultiplier * farmMultiplier * mineMultiplier * factoryMultiplier * bankMultiplier);
+
+});
+
+
+
+
+omaMultiplierButton.addEventListener('click', () => {
+
+  if (score >= omaMultiplierCost) {
+
+    score -= omaMultiplierCost;
+
+    omaMultiplier++;
+
+    omaMultiplierCost *= 2;
+
+  
+
+   // omaMultiplierElement.textContent = omaMultiplierCost;
+
+    //omaMultiplierCostElement.textContent = omaMultiplierCost;
+document.getElementById("oma-multiplier-cost").textContent=omaMultiplierCost
+    updateScore();
+
+  }
+
+});
+
+farmMultiplierButton.addEventListener('click', () => {
+
+  if (score >= farmMultiplierCost) {
+
+    score -= farmMultiplierCost;
+
+    farmMultiplier += 2;
+
+    farmMultiplierCost *= 2;
+
+    
+
+   // omaMultiplierElement.textContent = omaMultiplierCost;
+
+    //omaMultiplierCostElement.textContent = omaMultiplierCost;
+document.getElementById("farm-multiplier-cost").textContent=farmMultiplierCost
+    updateScore();
+
+  }
+
+});
+
+mineMultiplierButton.addEventListener('click', () => {
+
+  if (score >= mineMultiplierCost) {
+
+    score -= mineMultiplierCost;
+
+    mineMultiplier += 3;
+
+    mineMultiplierCost *= 2;
+
+    
+
+   // omaMultiplierElement.textContent = omaMultiplierCost;
+
+    //omaMultiplierCostElement.textContent = omaMultiplierCost;
+document.getElementById("mine-multiplier-cost").textContent=mineMultiplierCost
+    updateScore();
+
+  }
+
+});
+
+factoryMultiplierButton.addEventListener('click', () => {
+
+  if (score >= factoryMultiplierCost) {
+
+    score -= factoryMultiplierCost;
+
+    factoryMultiplier += 5;
+
+    factoryMultiplierCost *= 2;
+
+    
+
+   // omaMultiplierElement.textContent = omaMultiplierCost;
+
+    //omaMultiplierCostElement.textContent = omaMultiplierCost;
+document.getElementById("factory-multiplier-cost").textContent=factoryMultiplierCost
+    updateScore();
+
+  }
+
+});
+
+bankMultiplierButton.addEventListener('click', () => {
+
+  if (score >= bankMultiplierCost) {
+
+    score -= bankMultiplierCost;
+
+    bankMultiplier += 8;
+
+    bankMultiplierCost *= 2;
+
+    
+
+   // omaMultiplierElement.textContent = omaMultiplierCost;
+
+    //omaMultiplierCostElement.textContent = omaMultiplierCost;
+document.getElementById("bank-multiplier-cost").textContent=bankMultiplierCost
+    updateScore();
+
+  }
+
+});
+
+
+
+
+
+
+autoClickerButton.addEventListener('click', () => {
+
+  if (score >= autoClickerCost) {
+
+    score -= autoClickerCost;
+
+    autoClickerCount++;
+
+    autoClickerCost *= 2;
+
+    autoClickerCountElement.textContent = autoClickerCount;
+
+    autoClickerCostElement.textContent = autoClickerCost;
+
+    scoreElement.textContent = score;
+
+    setInterval(() => {
+
+      addScore(autoClickerCount * omaMultiplier * farmMultiplier * mineMultiplier * factoryMultiplier * bankMultiplier);
+
+    }, 1000);
+
+  } else {
+
+    console.log("Insufficient score to purchase an auto-clicker.");
+
+  }
+
+});
+
+</script>
+
+<!-- CSS -->
+<style>
+.multiplier-column {
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+}
+
+
+
+
+.multiplier {
+
+margin: 10px;
+
+padding: 10px;
+
+background-color: #eee;
+
+border-radius: 5px;
+
+text-align: center;
+
+width: 150px;
+
+cursor: pointer;
+
+}
+
+
+
+
+.multiplier:hover {
+
+background-color: #ccc;
+
+}
+
+#button img {
+
+width: 50%;
+
+height: 50%;
+
+}
+
+</style>
+
+<hr>
+<section id="comments">
+<h3 class="m-l-30">Comments</h3>
+<form method="post" class="m-l-30">
+<p>
+<textarea name="content"
+placeholder="Comment"
+cols="60"
+rows="5"></textarea>
+</p>
+<p>
+<button type="submit">Add comment</button>
+</p>
+</form>
+{% for comment in game.comments %}
+<div class="comment m-l-20 m-t-10 m-b-10 m-r-10">
+  <p>#{{ comment.id }}</p>
+  <p>by {{ comment.author }}</p>
+  <p>{{ comment.content }}</p>
+</div></section>
+{% endfor %}
+{% endblock %}
