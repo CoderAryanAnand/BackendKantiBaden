@@ -37,8 +37,13 @@ post8 = Game(
     authors="Jan,Ramona,Paula",
     description="Chess2",
 )
+post9 = Game(
+    title="Crypto Miner",
+    name="websitestart-main/cookie-index",
+    authors="Cédric, Rafael, Andrei",
+    description="Cookie Clicker but Bitcoin themed. Man kann klicken est gibt Autoclicker und Upgrades für deine Klicks.",
+)
 
-
-db.session.add_all([post1, post2, post3, post4,post5,post6,post7,post8])
+db.session.add_all([post1, post2, post3, post4,post5,post6,post7,post8, post9])
 
 db.session.commit()

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- HTML -->
+<html>
+<head>
+	<title>Cookie Clicker</title>
+
+<style>
+</style>
+</head>
+<body>
+  
+	<h1 id="title" class="text">Crypto Miner</h1>
+  <div id="container">
+    <div id="inf">
+      <div id="cookiecontainer">
+        <p id="counter" class="text">Coins: 0</p>
+    <button id="cookie" onclick="incrementCounter()"><img src="static/resources204/pixil-frame-0 (1).png" alt=""> </button>
+  </div>
+    </div>
+  <div id="textcontainer">
+  <p id="autoClickerAmount" class="text"> Autoclickers </p>
+  <p id="upgradeAmount" class="text"> Upgrades </p>
+  </div>
+
+  
+
+
+<div id="buttoncontainer">
+  <div>
+    <button id="autoClicker" class="buttonColor" onclick="buyAutoClicker()">Buy AutoClicker</button>
+  </div>
+  <div>  
+  <button id="Upgrade" class="buttonColor" onclick="buyUpgrade()">Upgrade</button>
+  </div>
+</div>
+</div>
+ 
+</body>
+</html>
+
+<!-- JAVASCRIPT -->
+<script>
+
+
+//cookieclicker
+
+var cookie = document.getElementById("cookie");
+var counterDisplay = document.getElementById("counter");
+//var autoClicker = document.getElementById("autoClicker").innerHTML;
+//var autoClickerAmount = document.getElementById("autoClickerAmount").innerHTML;
+var autoClicker = 0;
+var autoClickerAmount = 0;
+let upgradeAmount = document.getElementById("upgrademount");
+const price = [100,200,500,1000];
+let counter =0;
+let cookiesGained=1;
+
+
+function incrementCounter() {
+	counter= counter + cookiesGained;
+	counterDisplay.innerHTML = "Coins:" + " " + counter;
+}
+
+
+let i = 0;
+//increase the price for autoclickers
+function increaseAutoClickerPrice(){
+  if (autoClickerAmount >= 0) {
+   
+    counter -= price[i];
+    i++;
+
+  }
+}
+let z = 0;
+//increase the price for upgrades
+function increaseUpgradePrice(){
+  if ( upgradeAmount >= 0) {
+   
+    counter -= price[z];
+    z++;
+
+  }
+}
+
+function buyAutoClicker() {
+  
+  if (counter >= price[i]) {
+    increaseAutoClickerPrice();
+    autoClickerAmount++;
+
+    document.getElementById("counter").innerHTML = "Coins:" + " " + counter;
+    document.getElementById("autoClickerAmount").innerHTML = "Autoclickers:" + " " +autoClickerAmount;
+  } else {
+    alert("Not enough coins!");
+  }
+}
+function buyUpgrade(){
+  if(counter>= price[z]){
+    increaseUpgradePrice();
+    upgradeAmount++;
+    
+    cookiesGained =cookiesGained*2;
+    document.getElementById("counter").innerHTML = "Coins:" + " " + counter;
+    document.getElementById("upgradeAmount").innerHTML = "Upgrades:" + " " +upgradeAmount;
+  }
+  else {
+    alert("Not enough coins!");
+  }
+}
+
+function autoClick() {
+  counter += autoClickerAmount;
+  document.getElementById("counter").innerHTML = "Coins:" + " " +counter;
+}
+
+setInterval(autoClick, 1000);
+
+
+
+</script>
+
+<!-- CSS -->
+<style>
+
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    background-image: url("static/resources204/253362.jpg");
+    overflow: hidden;
+    
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    }
+#container{
+   display: flex;
+    flex-direction: row;
+}
+#inf{
+    flex: auto;
+}
+#cookiecontainer{
+    flex-direction: column;
+}
+#buttoncontainer{
+    flex-direction: column;
+   
+}
+#textcontainer{
+    flex: auto;
+    text-align: left;
+}
+#cookie{
+    overflow: hidden;
+}
+.buttonColor{
+    background-color: rgb(47, 255, 78);
+    border: 2px solid #4CAF50; /* Green */;
+    margin: 4px;
+    font-size: 25px;
+    padding: 10px 20px;
+    box-shadow: 0 8px 16px 0 rgba(37, 8, 201, 0.478), 0 6px 20px 0 rgba(26, 11, 231, 0.506);
+}
+.text{
+    color: #22ff29;
+    font-size: 25px;
+
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    background-image: url("static/resources204/253362.jpg");
+    overflow: hidden;
+    
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    }
+#container{
+   display: flex;
+    flex-direction: row;
+}
+#inf{
+    flex: auto;
+}
+#cookiecontainer{
+    flex-direction: column;
+}
+#buttoncontainer{
+    flex-direction: column;
+   
+}
+#textcontainer{
+    flex: auto;
+    text-align: left;
+}
+#cookie{
+    overflow: hidden;
+}
+.buttonColor{
+    background-color: rgb(47, 255, 78);
+    border: 2px solid #4CAF50; /* Green */;
+    margin: 4px;
+    font-size: 25px;
+    padding: 10px 20px;
+    box-shadow: 0 8px 16px 0 rgba(37, 8, 201, 0.478), 0 6px 20px 0 rgba(26, 11, 231, 0.506);
+}
+.text{
+    color: #22ff29;
+    font-size: 25px;
+
+}
+</style>
+
+<hr>
+<section id="comments">
+<h3 class="m-l-30">Comments</h3>
+<form method="post" class="m-l-30">
+<p>
+<textarea name="content"
+placeholder="Comment"
+cols="60"
+rows="5"></textarea>
+</p>
+<p>
+<button type="submit">Add comment</button>
+</p>
+</form>
+{% for comment in game.comments %}
+<div class="comment m-l-20 m-t-10 m-b-10 m-r-10">
+<p>#{{ comment.id }}</p>
+<p>by {{ comment.author }}</p>
+<p>{{ comment.content }}</p>
+</div></section>
+{% endfor %}
+{% endblock %}
+

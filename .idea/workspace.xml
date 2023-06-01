@@ -4,43 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="201 works">
-      <change afterPath="$PROJECT_DIR$/static/img207/block.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/capBottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/capLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/capRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/capTop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorBottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorDownwards.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorTop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeCorner1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeCorner2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeCorner3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeCorner4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeCross.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeHorizontal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img207/pipeVertical.png" afterDir="false" />
+    <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="207 works">
+      <change afterPath="$PROJECT_DIR$/static/resources204/25336.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/253362.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/background2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/background3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/pixil-frame-0 (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/sounds/comScore.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/sounds/hit.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/sounds/userScore.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/resources204/sounds/wall.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Games/websitestart-main/Crypto Miner" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Games/websitestart-main/cookie-index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/block.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/capBottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/capLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/capRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/capTop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorBottom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorDownwards.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorTop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCorner1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCorner2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCorner3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCorner4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCross.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeHorizontal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeVertical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/pacman/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/init_db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685623302141</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="207 works">
+      <created>1685626987941</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685626987941</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,7 +195,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="implementation and reworking CSS" />
     <MESSAGE value="201 works" />
-    <option name="LAST_COMMIT_MESSAGE" value="201 works" />
+    <MESSAGE value="207 works" />
+    <option name="LAST_COMMIT_MESSAGE" value="207 works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
