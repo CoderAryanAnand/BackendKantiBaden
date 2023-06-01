@@ -4,75 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="implementation and reworking CSS">
+    <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="201 works">
+      <change afterPath="$PROJECT_DIR$/static/img207/block.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/capBottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/capLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/capRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/capTop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorBottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorDownwards.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeConnectorTop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeCorner1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeCorner2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeCorner3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeCorner4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeCross.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeHorizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img207/pipeVertical.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/init_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/201.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/Chess2/201.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisBishop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisGob.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisGobl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisKnight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisOnetwo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisQueen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisRook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisSupe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisSuperPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackBishop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackGob.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackGobl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackKnight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackOnetwo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackQueen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackRook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackSupe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackSuperPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/buttonpressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/finger.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/gunblack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/gunwhite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/mandarine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/spiral.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteBishop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteGob.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteGobl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteKnight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteOnetwo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whitePawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteQueen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteRook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteSupe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteSuperPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisBishop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisGob.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisGobl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisKnight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisOnetwo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisQueen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisRook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisSupe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisSuperPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Bishop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Gob.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Gobl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/King.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Knight.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Mara.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Onetwo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Pawn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Piece.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Queen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Rook.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Supe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/SuperPawn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/block.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/capBottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/capLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/capRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/capTop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorBottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorDownwards.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeConnectorTop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCorner1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCorner2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCorner3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCorner4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeCross.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeHorizontal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/img/pipeVertical.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/pacman/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/pacman/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +178,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685621849228</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="201 works">
+      <created>1685623289916</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685623289916</updated>
+    </task>
+    <task id="LOCAL-00004" summary="201 works">
+      <created>1685623302140</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685623302141</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,7 +209,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="implementation and reworking CSS" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementation and reworking CSS" />
+    <MESSAGE value="201 works" />
+    <option name="LAST_COMMIT_MESSAGE" value="201 works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
