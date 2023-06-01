@@ -1,7 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
 <!-- HTML -->
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +14,7 @@
       h1 {
         text-align: center;
         font-family: comic sans MS;
-        color: lightgrey;
+        color: light grey;
       }
 
       body {
@@ -63,14 +62,14 @@ class Pacman {
     this.pacmanAnimationTimer = null;
 
     this.pacmanRotation = this.Rotation.right;
-    this.wakaSound = new Audio("../sounds/waka.wav");
+    this.wakaSound = new Audio("static/sounds205/waka.wav");
 
-    this.powerDotSound = new Audio("../sounds/power_dot.wav");
+    this.powerDotSound = new Audio("static/sounds205/power_dot.wav");
     this.powerDotActive = false;
     this.powerDotAboutToExpire = false;
     this.timers = [];
 
-    this.eatGhostSound = new Audio("../sounds/eat_ghost.wav");
+    this.eatGhostSound = new Audio("static/sounds205/eat_ghost.wav");
 
     this.madeFirstMove = false;
 
@@ -118,16 +117,16 @@ class Pacman {
   }
   loadPacmanImages() {
     const pacmanImage1 = new Image();
-    pacmanImage1.src = "../images/pac0.png";
+    pacmanImage1.src = "static/images205/pac0.png";
 
     const pacmanImage2 = new Image();
-    pacmanImage2.src = "../images/pac1.png";
+    pacmanImage2.src = "static/images205/pac1.png";
 
     const pacmanImage3 = new Image();
-    pacmanImage3.src = "../images/pac2.png";
+    pacmanImage3.src = "static/images205/pac2.png";
 
     const pacmanImage4 = new Image();
-    pacmanImage4.src = "../images/pac1.png";
+    pacmanImage4.src = "static/images205/pac1.png";
 
     this.pacmanImages = [
       pacmanImage1,
@@ -387,13 +386,13 @@ class Pacman {
 
   loadImages() {
     this.normalGhost = new Image();
-    this.normalGhost.src = "../images/ghost.png";
+    this.normalGhost.src = "static/images205/ghost.png";
 
     this.scaredGhost = new Image();
-    this.scaredGhost.src = "../images/scaredGhost.png";
+    this.scaredGhost.src = "static/images205/scaredGhost.png";
 
     this.scaredGhost2 = new Image();
-    this.scaredGhost2.src = "../images/scaredGhost2.png";
+    this.scaredGhost2.src = "static/images205/scaredGhost2.png";
 
     this.image = this.normalGhost;
   }
@@ -404,13 +403,13 @@ class Pacman {
     this.tileSize = tileSize;
 
     this.yellowDot = new Image();
-    this.yellowDot.src = "../Images/yellowDot.png";
+    this.yellowDot.src = "static/images205/yellowDot.png";
 
     this.pinkDot = new Image();
-    this.pinkDot.src = "../images/pinkdot.png";
+    this.pinkDot.src = "static/images205/pinkdot.png";
 
     this.wall = new Image();
-    this.wall.src = "../Images/wall.png";
+    this.wall.src = "static/images205/wall.png";
 
     this.powerDot = this.pinkDot;
     this.powerDotAnimationTimerDefault = 30;
@@ -623,8 +622,8 @@ class Pacman {
 
   let gameOver = false;
   let gameWin = false;
-  const gameOverSound = new Audio("../sounds/gameOver.wav");
-  const gameWinSound = new Audio("../sounds/gameWin.wav");
+  const gameOverSound = new Audio("static/sounds205/gameOver.wav");
+  const gameWinSound = new Audio("static/sounds205/gameWin.wav");
 
   function gameLoop() {
     tileMap.draw(ctx);
