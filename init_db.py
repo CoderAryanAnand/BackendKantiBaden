@@ -37,20 +37,8 @@ post8 = Game(
     authors="Jan,Ramona,Paula",
     description="Chess2",
 )
-post3 = Game(
-    title="",
-    name="",
-    authors="",
-    description="",
-)
-post3 = Game(
-    title="",
-    name="",
-    authors="",
-    description="",
-)
 
 
-db.session.add_all([post1, post2, post3, post4,post5,post6,post7])
+db.session.add_all([post1, post2, post3, post4,post5,post6,post7,post8])
 
 db.session.commit()

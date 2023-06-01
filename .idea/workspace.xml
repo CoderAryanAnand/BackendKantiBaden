@@ -5,36 +5,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="implementation and reworking CSS">
-      <change afterPath="$PROJECT_DIR$/static/Images205/ghost.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Images205/pac0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Images205/pac1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Images205/pac2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Images205/pinkDot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Images205/scaredGhost.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Images205/scaredGhost2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Images205/wall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Images205/yellowDot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/sounds205/eat_ghost.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/sounds205/gameOver.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/sounds205/gameWin.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/sounds205/power_dot.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/sounds205/waka.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/ghost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/pac0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/pac1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/pac2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/pinkDot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/scaredGhost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/scaredGhost2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/wall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/Images/yellowDot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/sounds/eat_ghost.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/sounds/gameOver.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/sounds/gameWin.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/sounds/power_dot.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/sounds/waka.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/src/205.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/Abgabe GitHub/src/205.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/init_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/201.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/Chess2/201.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisGob.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisGobl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisOnetwo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisSupe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/binvisSuperPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackGob.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackGobl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackOnetwo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackSupe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/blackSuperPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/bomb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/buttonpressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/finger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/gunblack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/gunwhite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/mandarine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/spiral.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteGob.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteGobl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteOnetwo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whitePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteSupe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/whiteSuperPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisGob.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisGobl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisOnetwo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisSupe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/img/winvisSuperPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Bishop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Gob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Gobl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/King.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Knight.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Mara.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Onetwo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Pawn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Piece.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Queen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Rook.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/Supe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/pieces/SuperPawn.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +106,29 @@
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="simonTestNew" />
+                    <option name="lastUsedInstant" value="1685621967" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="SerafinoTest" />
+                    <option name="lastUsedInstant" value="1685621966" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -142,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685533228935</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="implementation and reworking CSS">
+      <created>1685621849228</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685621849228</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

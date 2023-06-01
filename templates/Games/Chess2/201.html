@@ -2,11 +2,9 @@
 {% block content %}
 
 <!-- HTML -->
-<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="chess2style.css">
 </head>
 <body>
 
@@ -26,19 +24,19 @@
 	<p id="wturnnr">Turn Nr 0</p>
 	<table>
 		<tr>
-			<th><img src="img/mandarine.png" width= "70px"></th>
+			<th><img src="static/img201/mandarine.png" width= "70px"></th>
 			<th id="wmandarins">:0</th>
-			<th id="wskipbutton"><img src="img/buttonpressed.png" onclick="maraultwhite()" width= "80px"></th>
+			<th id="wskipbutton"><img src="static/img201/buttonpressed.png" onclick="maraultwhite()" width= "80px"></th>
 		</tr>
 		<tr>
-			<th><img src="img/finger.png" width= "70px"></th>
+			<th><img src="static/img201/finger.png" width= "70px"></th>
 			<th id="wfingers">:0</th>
-			<th id="wnoult"><img src="img/buttonpressed.png" onclick="goblultwhite()" width= "80px"></th>
+			<th id="wnoult"><img src="static/img201/buttonpressed.png" onclick="goblultwhite()" width= "80px"></th>
 		</tr>
 		<tr>
-			<th><img src="img/gunblack.png" width= "70px"></th>
+			<th><img src="static/img201/gunblack.png" width= "70px"></th>
 			<th id="wguns">:0</th>
-			<th id="wblind"><img src="img/buttonpressed.png" onclick="gobulthwite()" width= "80px"></th>
+			<th id="wblind"><img src="static/img201/buttonpressed.png" onclick="gobulthwite()" width= "80px"></th>
 		</tr>
 	</table>
 </div>
@@ -47,19 +45,19 @@
 	<p id="bturnnr">Turn Nr 0</p>
 	<table>
 		<tr>
-			<th><img src="img/mandarine.png" width= "70px"></th>
+			<th><img src="static/img201/mandarine.png" width= "70px"></th>
 			<th id="bmandarins">:0</th>
-			<th id="bskipbutton"><img src="img/buttonpressed.png" onclick="maraultblack()" width= "80px"></th>
+			<th id="bskipbutton"><img src="static/img201/buttonpressed.png" onclick="maraultblack()" width= "80px"></th>
 		</tr>
 		<tr>
-			<th><img src="img/finger.png" width= "70px"></th>
+			<th><img src="static/img201/finger.png" width= "70px"></th>
 			<th id="bfingers">:0</th>
-			<th id="bnoult"><img src="img/buttonpressed.png" onclick="goblultblack()" width= "80px"></th>
+			<th id="bnoult"><img src="static/img201/buttonpressed.png" onclick="goblultblack()" width= "80px"></th>
 		</tr>
 		<tr>
-			<th><img src="img/gunblack.png" width= "70px"></th>
+			<th><img src="static/img201/gunblack.png" width= "70px"></th>
 			<th id="bguns">:0</th>
-			<th id="bblind"><img src="img/buttonpressed.png" onclick="gobultblack()" width= "80px"></th>
+			<th id="bblind"><img src="static/img201/buttonpressed.png" onclick="gobultblack()" width= "80px"></th>
 		</tr>
 	</table>
 </div>
@@ -70,54 +68,54 @@
 	<div id="board">
 		<div id="final" class="odd">
 			<div id="81" class="square" data-square="8-a">
-				<img class="piece gobl" id="blackGobl" src="img/blackGobl.png">
+				<img class="piece gobl" id="blackGobl" src="static/img201/blackGobl.png">
 			</div>
 			<div id="82" class="square" data-square="8-b">
-				<img class="piece knight" id="blackKnight1" src="img/blackKnight.png">
+				<img class="piece knight" id="blackKnight1" src="static/img201/blackKnight.png">
 			</div>
 			<div id="83" class="square" data-square="8-c">
-				<img class="piece bishop" id="blackBishop1" data-color="black" src="img/blackBishop.png">
+				<img class="piece bishop" id="blackBishop1" data-color="black" src="static/img201/blackBishop.png">
 			</div>
 			<div id="84" class="square" data-square="8-d">
-				<img class="piece bking" id="blackQueen" data-color="black" src="img/blackQueen.png">
+				<img class="piece bking" id="blackQueen" data-color="black" src="static/img201/blackQueen.png">
 			</div>
 			<div id="85" class="square" data-square="8-e">
-				<img class="piece bking" id="blackKing" data-color="black" src="img/blackKing.png">
+				<img class="piece bking" id="blackKing" data-color="black" src="static/img201/blackKing.png">
 			</div>
 			<div id="86" class="square" data-square="8-f">
-				<img class="piece gob" id="blackGob" data-color="black" src="img/blackGob.png">
+				<img class="piece gob" id="blackGob" data-color="black" src="static/img201/blackGob.png">
 			</div>
 			<div id="87" class="square" data-square="8-g">
-				<img class="piece bking" id="blackKnight2" data-color="black" src="img/blackKnight.png">
+				<img class="piece bking" id="blackKnight2" data-color="black" src="static/img201/blackKnight.png">
 			</div>
 			<div id="88" class="square" data-square="8-h">
-				<img class="piece rook" id="blackRook2" src="img/blackRook.png">
+				<img class="piece rook" id="blackRook2" src="static/img201/blackRook.png">
 			</div>
 		</div>
 		<div class="even">
 			<div id="71" class="square" data-square="7-a">
-				<img class="piece pawn" id="blackPawn1" src="img/blackPawn.png">
+				<img class="piece pawn" id="blackPawn1" src="static/img201/blackPawn.png">
 			</div>
 			<div id="72" class="square" data-square="7-b">
-				<img class="piece pawn" id="blackPawn2" src="img/blackPawn.png">
+				<img class="piece pawn" id="blackPawn2" src="static/img201/blackPawn.png">
 			</div>
 			<div id="73" class="square" data-square="7-c">
-				<img class="piece pawn" id="blackPawn3" src="img/blackPawn.png">
+				<img class="piece pawn" id="blackPawn3" src="static/img201/blackPawn.png">
 			</div>
 			<div id="74" class="square" data-square="7-d">
-				<img class="piece pawn" id="blackPawn4" src="img/blackPawn.png">
+				<img class="piece pawn" id="blackPawn4" src="static/img201/blackPawn.png">
 			</div>
 			<div id="75" class="square" data-square="7-e">
-				<img class="piece supe" id="blackSupe" src="img/blackSupe.png">
+				<img class="piece supe" id="blackSupe" src="static/img201/blackSupe.png">
 			</div>
 			<div id="76" class="square" data-square="7-f">
-				<img class="piece pawn" id="blackPawn6" src="img/blackPawn.png">
+				<img class="piece pawn" id="blackPawn6" src="static/img201/blackPawn.png">
 			</div>
 			<div id="77" class="square" data-square="7-g">
-				<img class="piece onetwo" id="blackOnetwo" src="img/blackOnetwo.png">
+				<img class="piece onetwo" id="blackOnetwo" src="static/img201/blackOnetwo.png">
 			</div>
 			<div id="78" class="square" data-square="7-h">
-				<img class="piece pawn" id="blackPawn7" src="img/blackPawn.png">
+				<img class="piece pawn" id="blackPawn7" src="static/img201/blackPawn.png">
 			</div>
 		
 		</div>
@@ -163,54 +161,54 @@
 		</div>
 		<div class="odd">
 			<div class="square white" id="21" data-square="2-a">
-				<img class="piece pawn" id="whitePawn1" src="img/whitePawn.png">
+				<img class="piece pawn" id="whitePawn1" src="static/img201/whitePawn.png">
 			</div>
 			<div class="square white" id="22" data-square="2-b">
-				<img class="piece onetwo" id="whiteOnetwo" src="img/whiteOnetwo.png">
+				<img class="piece onetwo" id="whiteOnetwo" src="static/img201/whiteOnetwo.png">
 			</div>
 			<div class="square white" id="23" data-square="2-c">
-				<img class="piece pawn" id="whitePawn3" src="img/whitePawn.png">
+				<img class="piece pawn" id="whitePawn3" src="static/img201/whitePawn.png">
 			</div>
 			<div class="square white" id="24" data-square="2-d">
-				<img class="piece pawn" id="whitePawn4" src="img/whitePawn.png">
+				<img class="piece pawn" id="whitePawn4" src="static/img201/whitePawn.png">
 			</div>
 			<div class="square white" id="25" class="square" data-square="2-e">
-				<img class="piece supe" id="whiteSupe" src="img/whiteSupe.png">
+				<img class="piece supe" id="whiteSupe" src="static/img201/whiteSupe.png">
 			</div>
 			<div class="square white" id="26" data-square="2-f">
-				<img class="piece pawn" id="whitePawn6" src="img/whitePawn.png">
+				<img class="piece pawn" id="whitePawn6" src="static/img201/whitePawn.png">
 			</div>
 			<div class="square white" id="27" data-square="2-g">
-				<img class="piece pawn" id="whitePawn7" src="img/whitePawn.png">
+				<img class="piece pawn" id="whitePawn7" src="static/img201/whitePawn.png">
 			</div>
 			<div class="square white" id="28" data-square="2-h">
-				<img class="piece pawn" id="whitePawn8" src="img/whitePawn.png">
+				<img class="piece pawn" id="whitePawn8" src="static/img201/whitePawn.png">
 			</div>
 		</div>
 		<div class="even">
 			<div id="11" class="square white" data-square="1-a">
-				<img class="piece rook" id="whiteRook1" src="img/whiteRook.png">
+				<img class="piece rook" id="whiteRook1" src="static/img201/whiteRook.png">
 			</div>
 			<div id="12" class="square white" data-square="1-b">
-				<img class="piece knight" id="whiteKnight1" src="img/whiteKnight.png">
+				<img class="piece knight" id="whiteKnight1" src="static/img201/whiteKnight.png">
 			</div>
 			<div id="13" class="square white" data-square="1-c">
-				<img class="piece gob" id="whiteGob" data-color="white" src="img/whiteGob.png">
+				<img class="piece gob" id="whiteGob" data-color="white" src="static/img201/whiteGob.png">
 			</div>
 			<div id="14" class="square white" data-square="1-d">
-				<img class="piece queen" id="whiteQueen" src="img/whiteQueen.png">
+				<img class="piece queen" id="whiteQueen" src="static/img201/whiteQueen.png">
 			</div>
 			<div id="15" class="square white" data-square="1-e">
-				<img class="piece wking" src="img/whiteKing.png" class="white" id="whiteKing">
+				<img class="piece wking" src="static/img201/whiteKing.png" class="white" id="whiteKing">
 			</div>
 			<div id="16" class="square white" data-square="1-f">
-				<img class="piece knight" id="whiteBishop2" src="img/whiteBishop.png">
+				<img class="piece knight" id="whiteBishop2" src="static/img201/whiteBishop.png">
 			</div>
 			<div id="17" class="square white" data-square="1-g">
-				<img class="piece knight" id="whiteKnight2" src="img/whiteKnight.png">
+				<img class="piece knight" id="whiteKnight2" src="static/img201/whiteKnight.png">
 			</div>
 			<div id="18" class="square white" data-square="1-h">
-				<img class="piece gobl" id="whiteGobl" src="img/whiteGobl.png">
+				<img class="piece gobl" id="whiteGobl" src="static/img201/whiteGobl.png">
 			</div>
 		</div>
 	</div>
@@ -261,19 +259,18 @@
 	-->
 </div>
 
-<script type="text/javascript" src="pieces/Piece.js"></script>
-<script type="text/javascript" src="pieces/King.js"></script>
-<script type="text/javascript" src="pieces/Queen.js"></script>
-<script type="text/javascript" src="pieces/Rook.js"></script>
-<script type="text/javascript" src="pieces/Bishop.js"></script>
-<script type="text/javascript" src="pieces/Knight.js"></script>
-<script type="text/javascript" src="pieces/Onetwo.js"></script>
-<script type="text/javascript" src="pieces/Supe.js"></script>
-<script type="text/javascript" src="pieces/SuperPawn.js"></script>
-<script type="text/javascript" src="pieces/Gobl.js"></script>
-<script type="text/javascript" src="pieces/Gob.js"></script>
-<script type="text/javascript" src="pieces/Pawn.js"></script>
-<script type="text/javascript" src="chess2script.js"></script>
+<script type="text/javascript" src="static/pieces201/Piece.js"></script>
+<script type="text/javascript" src="static/pieces201/King.js"></script>
+<script type="text/javascript" src="static/pieces201/Queen.js"></script>
+<script type="text/javascript" src="static/pieces201/Rook.js"></script>
+<script type="text/javascript" src="static/pieces201/Bishop.js"></script>
+<script type="text/javascript" src="static/pieces201/Knight.js"></script>
+<script type="text/javascript" src="static/pieces201/Onetwo.js"></script>
+<script type="text/javascript" src="static/pieces201/Supe.js"></script>
+<script type="text/javascript" src="static/pieces201/SuperPawn.js"></script>
+<script type="text/javascript" src="static/pieces201/Gobl.js"></script>
+<script type="text/javascript" src="static/pieces201/Gob.js"></script>
+<script type="text/javascript" src="static/pieces201/Pawn.js"></script>
 
 
 <script type="text/javascript">
@@ -780,51 +777,51 @@ blackinviss = false
 	checkgobdeadwhite()
 	if(wfingers >= 13 && wgoblult === true){
 		document.getElementById("wfingers").innerHTML = ": 12";
-		document.getElementById("wnoult").innerHTML = "<img src='img/button.png' onclick='goblultwhite()' width= '80px'></img>"
+		document.getElementById("wnoult").innerHTML = "<img src='static/img201/button.png' onclick='goblultwhite()' width= '80px'></img>"
 	}
 	else if(wfingers >= 13){
 		document.getElementById("wfingers").innerHTML = ": 12";
-		document.getElementById("wnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultwhite()' width= '80px'></img>"
+		document.getElementById("wnoult").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='goblultwhite()' width= '80px'></img>"
 	}
 	if(bfingers >= 13 && bgoblult === true){
 		document.getElementById("bfingers").innerHTML = ": 12";
-		document.getElementById("bnoult").innerHTML = "<img src='img/button.png' onclick='goblultblack()' width= '80px'></img>"
+		document.getElementById("bnoult").innerHTML = "<img src='static/img201/button.png' onclick='goblultblack()' width= '80px'></img>"
 	}
 	else if(bfingers >= 13){
 		document.getElementById("bfingers").innerHTML = ": 12";
-		document.getElementById("bnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultblack()' width= '80px'></img>"
+		document.getElementById("bnoult").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='goblultblack()' width= '80px'></img>"
 	}
 	if(wmandarins >= 10 && wmarault === true){
 		document.getElementById("wmandarins").innerHTML = ": 10";
-		document.getElementById("wskipbutton").innerHTML = "<img src='img/button.png' onclick='maraultwhite()' width= '80px'></img>"
+		document.getElementById("wskipbutton").innerHTML = "<img src='static/img201/button.png' onclick='maraultwhite()' width= '80px'></img>"
 	} 
 	else if(wmandarins >= 10){
 		document.getElementById("wmandarins").innerHTML = ": 10";
-		document.getElementById("wskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultwhite()' width= '80px'></img>"
+		document.getElementById("wskipbutton").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='maraultwhite()' width= '80px'></img>"
 	}
 	if(bmandarins >= 10 && bmarault === true){
 		document.getElementById("bmandarins").innerHTML = ": 10";
-		document.getElementById("bskipbutton").innerHTML = "<img src='img/button.png' onclick='maraultblack()' width= '80px'></img>"
+		document.getElementById("bskipbutton").innerHTML = "<img src='static/img201/button.png' onclick='maraultblack()' width= '80px'></img>"
 	}
 	else if(bmandarins >= 10){
 		document.getElementById("bmandarins").innerHTML = ": 10";
-		document.getElementById("bskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultblack()' width= '80px'></img>"
+		document.getElementById("bskipbutton").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='maraultblack()' width= '80px'></img>"
 	}
 	if(wguns >= 8 && wgobult === true){
 		document.getElementById("wguns").innerHTML = ": 7";
-		document.getElementById("wblind").innerHTML = "<img src='img/button.png' onclick='gobultwhite()' width= '80px'></img>"
+		document.getElementById("wblind").innerHTML = "<img src='static/img201/button.png' onclick='gobultwhite()' width= '80px'></img>"
 	}
 	else if(wguns >= 8){
 		document.getElementById("wguns").innerHTML = ": 7";
-		document.getElementById("wblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gobultwhite()' width= '80px'></img>"
+		document.getElementById("wblind").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='gobultwhite()' width= '80px'></img>"
 	}
 	if(bguns >= 8 && bgobult === true){
 		document.getElementById("bguns").innerHTML = ": 7";
-		document.getElementById("bblind").innerHTML = "<img src='img/button.png' onclick='gobultblack()' width= '80px'></img>"
+		document.getElementById("bblind").innerHTML = "<img src='static/img201/button.png' onclick='gobultblack()' width= '80px'></img>"
 	}
 	else if(bguns >= 8){
 		document.getElementById("bguns").innerHTML = ": 7";
-		document.getElementById("bblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gobultblack()' width= '80px'></img>"
+		document.getElementById("bblind").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='gobultblack()' width= '80px'></img>"
 	}
 	document.getElementById("wturnnr").innerHTML = "White Turns: " + wturnnr;
 	document.getElementById("bturnnr").innerHTML = "Black Turns: " + bturnnr;
@@ -1326,8 +1323,8 @@ body{
 	background: #7bbba4;
 }
 #board{
-	width: 600px;
-	height: 600px;
+	width: 606px;
+	height: 606px;
 	border:3px #333 solid;
 }
 #board div div{
@@ -1400,7 +1397,7 @@ img{
 }
 .clicked-square{
 	background: radial-gradient(#333,#222 )!important;
-	border:1px solid black !important;
+	border:0px solid black !important;
 }
 #sematary img{
 	transform: rotateZ(0);
