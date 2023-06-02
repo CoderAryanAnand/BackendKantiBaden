@@ -43,7 +43,23 @@ post9 = Game(
     authors="Cédric, Rafael, Andrei",
     description="Cookie Clicker but Bitcoin themed. Man kann klicken est gibt Autoclicker und Upgrades für deine Klicks.",
 )
+user1 = User(
+    username="admin",
+    password=generate_password_hash("password"),
+)
+user2 = User(
+    username="SirCraft007",
+    password=generate_password_hash("1234"),
+)
 
-db.session.add_all([post1, post2, post3, post4,post5,post6,post7,post8, post9])
+#post_ = Game(
+#    title="",
+#    name="",
+#    authors="",
+#    description="",
+#)
+
+db.session.add_all([post1, post2, post3, post4,post5,post6,post7,post8, post9, user1, user2])
+
 
 db.session.commit()
