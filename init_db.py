@@ -1,4 +1,5 @@
-from app import db, Game, Comment
+from app import db, Game, Comment, User
+from werkzeug.security import generate_password_hash
 
 post1 = Game(
     title="Color By Number", name="210", authors="Anisha and Freja", description="..."
