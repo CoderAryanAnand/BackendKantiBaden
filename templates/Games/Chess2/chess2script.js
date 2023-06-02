@@ -474,51 +474,51 @@ blackinviss = false
 	checkgobdeadwhite()
 	if(wfingers >= 13 && wgoblult === true){
 		document.getElementById("wfingers").innerHTML = ": 12";
-		document.getElementById("wnoult").innerHTML = "<img src='img/button.png' onclick='goblultwhite()' width= '80px'></img>"
+		document.getElementById("wnoult").innerHTML = "<img src='static/img201/button.png' onclick='goblultwhite()' width= '80px'></img>"
 	}
 	else if(wfingers >= 13){
 		document.getElementById("wfingers").innerHTML = ": 12";
-		document.getElementById("wnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultwhite()' width= '80px'></img>"
+		document.getElementById("wnoult").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='goblultwhite()' width= '80px'></img>"
 	}
 	if(bfingers >= 13 && bgoblult === true){
 		document.getElementById("bfingers").innerHTML = ": 12";
-		document.getElementById("bnoult").innerHTML = "<img src='img/button.png' onclick='goblultblack()' width= '80px'></img>"
+		document.getElementById("bnoult").innerHTML = "<img src='static/img201/button.png' onclick='goblultblack()' width= '80px'></img>"
 	}
 	else if(bfingers >= 13){
 		document.getElementById("bfingers").innerHTML = ": 12";
-		document.getElementById("bnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultblack()' width= '80px'></img>"
+		document.getElementById("bnoult").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='goblultblack()' width= '80px'></img>"
 	}
 	if(wmandarins >= 10 && wmarault === true){
 		document.getElementById("wmandarins").innerHTML = ": 10";
-		document.getElementById("wskipbutton").innerHTML = "<img src='img/button.png' onclick='maraultwhite()' width= '80px'></img>"
+		document.getElementById("wskipbutton").innerHTML = "<img src='static/img201/button.png' onclick='maraultwhite()' width= '80px'></img>"
 	} 
 	else if(wmandarins >= 10){
 		document.getElementById("wmandarins").innerHTML = ": 10";
-		document.getElementById("wskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultwhite()' width= '80px'></img>"
+		document.getElementById("wskipbutton").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='maraultwhite()' width= '80px'></img>"
 	}
 	if(bmandarins >= 10 && bmarault === true){
 		document.getElementById("bmandarins").innerHTML = ": 10";
-		document.getElementById("bskipbutton").innerHTML = "<img src='img/button.png' onclick='maraultblack()' width= '80px'></img>"
+		document.getElementById("bskipbutton").innerHTML = "<img src='static/img201/button.png' onclick='maraultblack()' width= '80px'></img>"
 	}
 	else if(bmandarins >= 10){
 		document.getElementById("bmandarins").innerHTML = ": 10";
-		document.getElementById("bskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultblack()' width= '80px'></img>"
+		document.getElementById("bskipbutton").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='maraultblack()' width= '80px'></img>"
 	}
 	if(wguns >= 8 && wgobult === true){
 		document.getElementById("wguns").innerHTML = ": 7";
-		document.getElementById("wblind").innerHTML = "<img src='img/button.png' onclick='gobultwhite()' width= '80px'></img>"
+		document.getElementById("wblind").innerHTML = "<img src='static/img201/button.png' onclick='gobultwhite()' width= '80px'></img>"
 	}
 	else if(wguns >= 8){
 		document.getElementById("wguns").innerHTML = ": 7";
-		document.getElementById("wblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gobultwhite()' width= '80px'></img>"
+		document.getElementById("wblind").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='gobultwhite()' width= '80px'></img>"
 	}
 	if(bguns >= 8 && bgobult === true){
 		document.getElementById("bguns").innerHTML = ": 7";
-		document.getElementById("bblind").innerHTML = "<img src='img/button.png' onclick='gobultblack()' width= '80px'></img>"
+		document.getElementById("bblind").innerHTML = "<img src='static/img201/button.png' onclick='gobultblack()' width= '80px'></img>"
 	}
 	else if(bguns >= 8){
 		document.getElementById("bguns").innerHTML = ": 7";
-		document.getElementById("bblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gobultblack()' width= '80px'></img>"
+		document.getElementById("bblind").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='gobultblack()' width= '80px'></img>"
 	}
 	document.getElementById("wturnnr").innerHTML = "White Turns: " + wturnnr;
 	document.getElementById("bturnnr").innerHTML = "Black Turns: " + bturnnr;
@@ -542,7 +542,7 @@ blackinviss = false
 	if(wfingers >= 12 && wnoult === false && game.turn == "black" && wgoblult === true){
 	bnoult = true
 	console.log("black no-ult active")
-		document.getElementById("wnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultwhite()' width= '80px'></img>"
+		document.getElementById("wnoult").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='goblultwhite()' width= '80px'></img>"
 		wfingers = 0
 		//wfingers --
 		updatetext()
@@ -565,7 +565,7 @@ blackinviss = false
 	if(bfingers >= 12 && bnoult === false && game.turn == "white" && bgoblult === true){
 	wnoult = true
 	console.log("white no-ult active")
-		document.getElementById("bnoult").innerHTML = "<img src='img/buttonpressed.png' onclick='goblultblack()' width= '80px'></img>"
+		document.getElementById("bnoult").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='goblultblack()' width= '80px'></img>"
 		bfingers = 0
 		//bfingers --
 		updatetext()
@@ -587,7 +587,7 @@ blackinviss = false
   function maraultwhite(){
 	if(wmandarins >= 10 && game.turn == "white" && wnoult === false && wmarault === true){
 		console.log("yes ult.")
-		document.getElementById("wskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultwhite()' width= '80px'></img>"
+		document.getElementById("wskipbutton").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='maraultwhite()' width= '80px'></img>"
 		wmandarins = 0
 		skipwhite()
 		wmandarins --
@@ -610,7 +610,7 @@ blackinviss = false
   function maraultblack(){
 	if(bmandarins >= 10 && game.turn == "black" && bnoult === false && bmarault === true){
 		console.log("yes ult.")
-		document.getElementById("bskipbutton").innerHTML = "<img src='img/buttonpressed.png' onclick='maraultblack()' width= '80px'></img>"
+		document.getElementById("bskipbutton").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='maraultblack()' width= '80px'></img>"
 		bmandarins = 0
 		skipblack()
 		bmandarins --
@@ -747,7 +747,7 @@ stopgobultwhite()}
   function gobultwhite(){
 	if(wguns >= 7 && game.turn == "black" && wnoult === false && wgobult === true){
 		console.log("yes ult.")
-		document.getElementById("wblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gubultwhite()' width= '80px'></img>"
+		document.getElementById("wblind").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='gubultwhite()' width= '80px'></img>"
 		wguns = 0
 		whiteinvis()
 		//wguns --
@@ -770,7 +770,7 @@ stopgobultwhite()}
   function gobultblack(){
 	if(bguns >= 7 && game.turn == "white" && bnoult === false && bgobult === true){
 		console.log("yes ult.")
-		document.getElementById("bblind").innerHTML = "<img src='img/buttonpressed.png' onclick='gubultblack()' width= '80px'></img>"
+		document.getElementById("bblind").innerHTML = "<img src='static/img201/buttonpressed.png' onclick='gubultblack()' width= '80px'></img>"
 		bguns = 0
 		blackinvis()
 		//bguns --
