@@ -5,7 +5,7 @@ post1 = Game(
     title="Color By Number", name="210", authors="Anisha and Freja", description="..."
 )
 post2 = Game(
-    title="209 Game 1", name="209", authors="Nino,Vineet,Maxime", description="Mein Gott"
+    title="Cookie clicker", name="209", authors="Nino,Vineet,Maxime", description="Mein Gott"
 )
 
 post3 = Game(
@@ -46,7 +46,8 @@ post9 = Game(
 )
 user1 = User(
     username="admin",
-    password=generate_password_hash("password"),
+    password='pbkdf2:sha256:260000$wCAHKn1N2aEpnOFl$7538f442d24b45bbfa53768ca8b69621b75628b1c454b83372899d389e01e3ab',
+,
 )
 user2 = User(
     username="SirCraft007",
