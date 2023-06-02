@@ -5,19 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="207 works">
-      <change afterPath="$PROJECT_DIR$/static/resources204/25336.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/253362.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/background2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/background3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/pixil-frame-0 (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/sounds/comScore.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/sounds/hit.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/sounds/userScore.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resources204/sounds/wall.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/websitestart-main/Crypto Miner" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Games/websitestart-main/cookie-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/init_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/init_db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
