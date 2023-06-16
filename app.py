@@ -78,6 +78,11 @@ def index():
     return render_template("home_new.html", title="Home", games=games)
 
 
+@app.route("/characters-chess2", methods=["GET"])
+def characters_chess2():
+    return render_template("Games/Chess2/Characters.html", title="Characters | Chess2")
+
+
 @app.route("/<int:game_id>", methods=("GET", "POST"))
 @login_required
 def game_(game_id):

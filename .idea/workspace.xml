@@ -5,11 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1df8118b-74d3-4661-8266-18b36bc1dfb6" name="Changes" comment="207 works">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/blog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/Games/G1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/Games/G2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/Games/Home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/Games/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/auth/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/auth/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/blog/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/templates/blog/update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/flaskr/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Games/208.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/201.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/Chess2/201.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/Characters.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/Chess2/Characters.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/chess2html.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/Chess2/chess2html.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Games/Chess2/chess2script.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Games/Chess2/chess2script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
