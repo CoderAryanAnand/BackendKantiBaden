@@ -1,3 +1,4 @@
+from werkzeug.middleware.proxy_fix import ProxyFix
 from flask import (
     Flask,
     url_for,
@@ -13,6 +14,7 @@ from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 app.app_context().push()
